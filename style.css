@@ -2229,3 +2229,16 @@ body {
     color: #780000;
     margin-top: 10px;
 }
+.filmes-semanais a img {
+  width: 180px;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.filmes-semanais a img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+}

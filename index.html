@@ -20,7 +20,8 @@
           <a href="#" class="header-link text-wrapper">Eventos</a>
           <a href="#" id="link-contato" class="header-link div">Contato</a>
           <a href="cardapio.html" class="header-link text-wrapper-2">Cardápio</a>
-          <a href="nosso-propsito" class="header-link text-wrapper-3">Sobre nós</a>
+          <a href="#sobre-nos" class="header-link text-wrapper-3">Sobre nós</a>
+
 
           <!-- Ícones do cabeçalho -->
           <a href="login.html"><img class="usurio" src="https://c.animaapp.com/4vJNjV8I/img/icons8-usu-rio-32-1@2x.png" alt="Usuário" /></a>
@@ -37,7 +38,7 @@
         </section>
 
         <!-- Nosso propósito -->
-        <section class="nosso-propsito">
+        <section class="nosso-propsito" id="sobre-nos">
           <h2 class="text-wrapper-4">Nosso propósito</h2>
           <p class="p">
 A Lumière é a sua cafeteria temática da Sétima Arte, o refúgio ideal para quem ama cinema, oferecendo um ambiente acolhedor e repleto de referências cinematográficas. Nossa programação conta com exibições todos os dias, com dicas e spoilers sutis dos filmes para instigar a curiosidade de nossos clientes. O ponto alto da semana são as sextas-feiras, quando realizamos uma exibição surpresa acompanhada de um cardápio temático personalizado que só é revelado na hora, harmonizando perfeitamente com o filme da noite. Somos o lugar perfeito para saborear cafés e pratos criativos enquanto se vive a magia do cinema, diariamente.          </p>
@@ -63,20 +64,22 @@ No Café Lumière, todos os sábados, a magia do cinema ganha vida com Filmes Mi
         <img class="vector-2" src="https://c.animaapp.com/4vJNjV8I/img/vector-1.svg" alt="Seta decorativa" />
 
         <!-- Filmes semanais -->
-        <section class="filmes-semanais">
-          <img class="rectangle-5" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-19@2x.png" alt="Filme 1" />
-          <img class="rectangle-6" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-20@2x.png" alt="Filme 2" />
-          <img class="rectangle-7" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-21@2x.png" alt="Filme 3" />
-          <img class="rectangle-8" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-22@2x.png" alt="Filme 4" />
-          <img class="rectangle-9" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-24@2x.png" alt="Filme 5" />
+      <section class="filmes-semanais">
+  <a href="filme_seg.html"><img class="rectangle-5" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-19@2x.png" alt="Filme Segunda" /></a>
+  <a href="filme_ter.html"><img class="rectangle-6" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-20@2x.png" alt="Filme Terça" /></a>
+  <a href="filme_qua.html"><img class="rectangle-7" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-21@2x.png" alt="Filme Quarta" /></a>
+  <a href="filme_qui.html"><img class="rectangle-8" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-22@2x.png" alt="Filme Quinta" /></a>
+  <a href="filme_sex.html"><img class="rectangle-9" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-24@2x.png" alt="Filme Sexta" /></a>
+  <a href="filme_sab.html"><img class="rectangle-10" src="https://c.animaapp.com/4vJNjV8I/img/rectangle-24@2x.png" alt="Filme Sábado" /></a>
 
-          <div class="text-wrapper-8">Seg.</div>
-          <div class="text-wrapper-9">Ter.</div>
-          <div class="text-wrapper-10">Qua.</div>
-          <div class="text-wrapper-11">Qui.</div>
-          <div class="text-wrapper-12">Sex.</div>
-          <div class="text-wrapper-13">Sab.</div>
-        </section>
+  <div class="text-wrapper-8">Seg.</div>
+  <div class="text-wrapper-9">Ter.</div>
+  <div class="text-wrapper-10">Qua.</div>
+  <div class="text-wrapper-11">Qui.</div>
+  <div class="text-wrapper-12">Sex.</div>
+  <div class="text-wrapper-13">Sab.</div>
+</section>
+
 
         <!-- Conjunto de imagens decorativas -->
         <img class="conjunto-de-imagens" src="https://c.animaapp.com/4vJNjV8I/img/conjunto-de-imagens@4x.png" alt="Conjunto" />
@@ -146,6 +149,23 @@ No Café Lumière, todos os sábados, a magia do cinema ganha vida com Filmes Mi
   linkContato.addEventListener('click', function(e) {
     e.preventDefault(); // impede o comportamento padrão
     footer.scrollIntoView({ behavior: 'smooth' }); // rolagem suave até o rodapé
+  });
+</script>
+<script>
+  const linkSobreNos = document.querySelector('.header-link.text-wrapper-3'); // "Sobre nós"
+  const nossoProposito = document.getElementById('sobre-nos');
+
+  linkSobreNos.addEventListener('click', function(e) {
+    e.preventDefault(); // impede o comportamento padrão
+
+    // Pega a posição do topo da seção
+    const topPos = nossoProposito.getBoundingClientRect().top + window.pageYOffset;
+
+    // Subtrai um valor (por exemplo, 50px) para parar um pouco acima
+    window.scrollTo({
+      top: topPos - 140,
+      behavior: 'smooth'
+    });
   });
 </script>
 
