@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Lumière Café - Login e Cadastro</title>
+    
+    <link rel="stylesheet" href="globals.css"> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="acesso.css"> </head>
+<body class="login-body">
+    
+    <div class="form-page">
+        <div class="access-container">
+
+            <div class="header-acesso">
+                <h2>Bem-vindo ao Lumière</h2>
+                <p>Entre ou crie sua conta para uma experiência cinematográfica.</p>
+            </div>
+
+            <div class="form-toggle">
+                <button id="show-login" class="active">LOGIN</button>
+                <button id="show-cadastro">CADASTRAR-SE</button>
+            </div>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" name="senha" required>
+                </div>
+                <button type="button" class="forgot-password-link" id="open-recovery-modal">Esqueci a senha</button>
+                
+                <button type="submit" class="btn primary">ENTRAR</button>
+                <div id="login-message" class="message-area"></div>
+            </form>
+
+            <form id="cadastro-form" class="hidden-form">
+                <div class="input-group">
+                    <label for="reg-nome">Nome Completo</label>
+                    <input type="text" id="reg-nome" name="nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-senha">Senha</label>
+                    <input type="password" id="reg-senha" name="senha" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-confirmar-senha">Confirmar Senha</label>
+                    <input type="password" id="reg-confirmar-senha" name="confirmar-senha" required>
+                </div>
+                
+                <button type="submit" class="btn primary">CADASTRAR-SE</button>
+                <div id="cadastro-message" class="message-area"></div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="recovery-modal" class="modal-overlay hidden-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-recovery-modal">&times;</button>
+            <h3>Recuperação de Senha</h3>
+            <p>Informe o seu e-mail de cadastro. Enviaremos um link para redefinição da sua senha.</p>
+            <form id="recovery-form">
+                <div class="input-group">
+                    <label for="recovery-email">E-mail</label>
+                    <input type="email" id="recovery-email" name="email" required>
+                </div>
+                <button type="submit" class="btn primary btn-recovery">ENVIAR E-MAIL</button>
+                <div id="recovery-message" class="message-area"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="acesso.js"></script> 
+</body>
+</html>

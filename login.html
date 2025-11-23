@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Lumière - Login/Cadastro</title>
+    
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="style.css"> 
+    
+    </head>
+<body class="login-body">
+
+    <header class="login-header">
+        <img src="imagens/logo.png" alt="Lumière Café" class="main-logo-login">
+    </header>
+
+    <div class="form-page">
+        <div class="access-container">
+            <div class="form-toggle">
+                <button id="show-login" class="active">LOGIN</button>
+                <button id="show-cadastro">CADASTRAR-SE</button>
+            </div>
+
+            <form id="login-form">
+                <h3>Acesse sua Conta</h3>
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" required>
+                </div>
+                
+                <button type="button" id="forgot-password-btn" class="forgot-password-link">
+                    Esqueceu sua senha?
+                </button>
+                
+                <button type="submit" class="btn primary">ENTRAR</button>
+                <p id="login-message" class="message-area"></p>
+            </form>
+
+            <form id="cadastro-form" class="hidden-form">
+                <h3>Crie sua Conta</h3>
+                <div class="input-group">
+                    <label for="cadastro-nome">Nome Completo</label>
+                    <input type="text" id="cadastro-nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="cadastro-email">E-mail</label>
+                    <input type="email" id="cadastro-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="cadastro-senha">Senha</label>
+                    <input type="password" id="cadastro-senha" required>
+                </div>
+                <button type="submit" class="btn primary">CADASTRAR</button>
+                <p id="cadastro-message" class="message-area"></p>
+            </form>
+        </div>
+    </div>
+    
+    <div id="recovery-modal" class="modal-overlay hidden-modal">
+        <div class="modal-content">
+            <button type="button" id="close-modal-btn" class="close-btn">&times;</button>
+            <h3>Recuperar Senha</h3>
+            <p>Insira seu e-mail para receber um link de redefinição de senha.</p>
+            
+            <form id="recovery-form">
+                <div class="input-group">
+                    <label for="recovery-email">E-mail</label>
+                    <input type="email" id="recovery-email" required>
+                </div>
+                <button type="submit" class="btn primary btn-recovery">Enviar Link</button>
+                <p id="recovery-message" class="message-area"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
