@@ -18,7 +18,7 @@
         <!-- Cabeçalho -->
         <header>
           <a href="#" class="header-link text-wrapper">Eventos</a>
-          <a href="#" class="header-link div">Contato</a>
+          <a href="#" id="link-contato" class="header-link div">Contato</a>
           <a href="cardapio.html" class="header-link text-wrapper-2">Cardápio</a>
           <a href="nosso-propsito" class="header-link text-wrapper-3">Sobre nós</a>
 
@@ -103,7 +103,7 @@ No Café Lumière, todos os sábados, a magia do cinema ganha vida com Filmes Mi
         <div class="text-wrapper-16">Ver mais sobre...</div>
 
         <!-- Rodapé -->
-        <footer class="group-7">
+        <footer id="footer" class="group-7">
           <div class="rectangle-11"></div>
 
           <!-- Redes sociais -->
@@ -139,6 +139,16 @@ No Café Lumière, todos os sábados, a magia do cinema ganha vida com Filmes Mi
 
       </div>
     </div>
+    <script>
+  const linkContato = document.getElementById('link-contato');
+  const footer = document.getElementById('footer');
+
+  linkContato.addEventListener('click', function(e) {
+    e.preventDefault(); // impede o comportamento padrão
+    footer.scrollIntoView({ behavior: 'smooth' }); // rolagem suave até o rodapé
+  });
+</script>
+
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/login.js"></script>
