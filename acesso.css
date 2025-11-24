@@ -1,0 +1,255 @@
+/* ================================================== 
+   CONFIGURAÇÕES GERAIS DA PÁGINA DE ACESSO 
+   ================================================== */
+
+.login-body {
+    background-color: #FDF0D5; /* Fundo Creme */
+    font-family: 'Poppins', Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-page {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================================== 
+   CONTAINER PRINCIPAL (CAIXA ESCURA)
+   ================================================== */
+
+.access-container {
+    background-color: #542828; /* Marrom Lumière */
+    color: #FFF2DD; 
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px; 
+    text-align: center;
+    position: relative;
+}
+
+/* Cabeçalho do Formulário */
+.header-acesso h2 {
+    font-family: 'Caprasimo', cursive; 
+    font-size: 2.2rem;
+    color: #FFDEB4;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.header-acesso p {
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: #FDF0D5;
+}
+
+/* ================================================== 
+   TOGGLE (ABAS LOGIN / CADASTRO)
+   ================================================== */
+
+.form-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-toggle button {
+    flex-grow: 1;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    color: #FFF2DD;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    opacity: 0.6;
+}
+
+.form-toggle button.active {
+    font-weight: 700;
+    opacity: 1;
+    border-bottom: 3px solid #FFF2DD; /* Linha de destaque */
+}
+
+/* ================================================== 
+   INPUTS E FORMULÁRIOS
+   ================================================== */
+
+.hidden-form {
+    display: none !important;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #FFDEB4;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    /* Fundo claro para contraste dentro da caixa escura */
+    background-color: #FFF2DD; 
+    border: 1px solid #FFC0CB; /* Borda Rosa */
+    border-radius: 6px;
+    color: #542828;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 5px rgba(255, 192, 203, 0.5);
+}
+
+/* ================================================== 
+   BOTÕES E LINKS
+   ================================================== */
+
+/* Botão Principal (CTA) */
+.access-container .btn.primary {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #FFC0CB; /* Rosa */
+    color: #542828; /* Texto escuro */
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.access-container .btn.primary:hover {
+    background-color: #ffb3c1;
+    transform: translateY(-2px);
+}
+
+/* Link Esqueceu a Senha */
+.forgot-password-link {
+    background: none;
+    border: none;
+    color: #FFDEB4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85em;
+    cursor: pointer;
+    text-decoration: underline;
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.forgot-password-link:hover {
+    opacity: 1;
+    color: #FFF;
+}
+
+/* Área de Mensagem (Feedback) */
+.message-area {
+    margin-top: 15px;
+    min-height: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* ================================================== 
+   MODAL DE RECUPERAÇÃO DE SENHA
+   ================================================== */
+
+.hidden-modal {
+    display: none !important;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    background-color: #FDF0D5; /* Fundo claro no modal */
+    color: #542828;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h3 {
+    font-family: 'Caprasimo', serif;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #542828;
+}
+
+.modal-content p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Botão Fechar (X) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #542828;
+    cursor: pointer;
+}
+
+/* Ajuste específico para input dentro do modal claro */
+.modal-content input {
+    background-color: #fff;
+    border: 1px solid #542828;
+    color: #542828;
+}
+
+.modal-content .btn.primary {
+    background-color: #542828;
+    color: #FFDEB4;
+}
+
+.modal-content .btn.primary:hover {
+    background-color: #3a1a1a;
+}

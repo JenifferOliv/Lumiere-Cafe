@@ -1,50 +1,58 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,400|Caprasimo:400|Inter:400");
-* {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+
+/* Fonte personalizada */
+@font-face {
+  font-family: "Post No Bills Colombo ExtraBold-Regular";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/63a233d86eb4381ce7f333fd/fonts/sticknobills-extrabold.ttf") format("truetype");
 }
+
+/* ==============================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ============================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 html,
 body {
-  margin: 0px;
+  margin: 0;
   height: 100%;
+  width: 100%;
 }
-/* a blue color as a generic focus style */
+
+body {
+  background-color: #fdf0d5; /* Cor Creme (Fundo Principal) */
+  font-family: 'Poppins', sans-serif;
+  color: #3d3b3b;
+}
+
+/* ==============================================
+   ESTILOS GENÉRICOS DE UI
+   ============================================== */
+
 button:focus-visible {
   outline: 2px solid #4a90e2 !important;
   outline: -webkit-focus-ring-color auto 5px !important;
 }
+
 a {
   text-decoration: none;
-}
-@font-face {
-  font-family: "Post No Bills Colombo ExtraBold-Regular";
-  src: url("https://anima-uploads.s3.amazonaws.com/projects/63a233d86eb4381ce7f333fd/fonts/sticknobills-extrabold.ttf")
-    format("truetype");
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  color: inherit;
 }
 
-body {
-    background-color: #fdf0d5; /* Cor de fundo principal do café Lumière */
-    font-family: 'Poppins', sans-serif;
-    color: #3d3b3b;
-}
-
-/* Estilo para botões e links */
 button, a {
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 button:hover, a:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 button:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
