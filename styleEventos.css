@@ -1,0 +1,180 @@
+/* Importação não é necessária aqui se já estiver no globals.css */
+/* Mas garantimos que o box-sizing esteja em todos os lugares */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ajuste de fonte para se assemelhar ao modelo, se necessário */
+    font-family: "Sora", Helvetica, sans-serif;
+}
+
+/* ----------------------------------------------------------- */
+/* Estilos Globais do Container Pai (Fundo Azul Escuro) */
+/* ----------------------------------------------------------- */
+.desktop {
+    background-color: #003049;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o content-container */
+    padding: 20px 0; /* Espaço no topo/rodapé */
+}
+
+/* Fundo da "janela" de eventos (bege/laranja claro) */
+.desktop .rectangle-fundo {
+    position: absolute;
+    top: 186px; /* Onde a área bege começa */
+    width: 1347px;
+    height: 947px;
+    background-color: #fff2dd;
+    border-radius: 12px;
+}
+
+/* ----------------------------------------------------------- */
+/* Contêiner de Conteúdo (Garante que o conteúdo fique sobre o rectangle-fundo) */
+/* ----------------------------------------------------------- */
+.content-container {
+    position: relative;
+    z-index: 10;
+    width: 1347px; 
+    max-width: 95%; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: -120px;
+}
+
+/* ----------------------------------------------------------- */
+/* Estilos do Cabeçalho (Logo, Título, Seta) */
+/* ----------------------------------------------------------- */
+.header-content {
+    /* ... (propriedades existentes) ... */
+    
+    /* Ajuste fino da posição vertical do bloco de logo/título */
+    margin-top: 100px; 
+    margin-bottom: 20px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 250px; /* Ajuste conforme a imagem */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.title-eventos {
+    width: 252px;
+    height: auto;
+    /* Ajuste para que o título "Eventos" se posicione corretamente 
+       sobre o retângulo e o logo, centralizando-o visualmente. */
+    margin-top: -30px; 
+    /* Garante que o título esteja centralizado horizontalmente dentro do logo-container */
+    align-self: center; 
+}
+
+.arrow-container {
+    position: absolute;
+    top: 105px; /* Alinhe verticalmente com o topo do grid ou ajuste */
+    left: 20px; /* Margem esquerda dentro do content-container */
+    cursor: pointer;
+    margin-top: 100px;
+
+    /* Estilos Adicionais para Botão */
+    display: flex; /* Para centralizar o conteúdo (a seta) */
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Exemplo de largura */
+    height: 40px; /* Exemplo de altura */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #f0f0f0; /* Defina a cor do texto/seta */
+    font-size: 24px; /* Ajuste o tamanho da seta */
+    border: 2px solid #f0f0f0; /* Exemplo de borda */
+    border-radius: 50%; /* Exemplo para torná-lo circular */
+    transition: background-color 0.3s; /* Adiciona uma transição suave para o hover */
+}
+
+.arrow-container:hover {
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+}
+
+/* ----------------------------------------------------------- */
+/* Estilos do Grid (Define o layout 2x3) */
+/* ----------------------------------------------------------- */
+.movie-grid-layout {
+    /* Define o grid 3 colunas e alinha ao centro */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px; /* Espaçamento entre os cards, ajuste conforme o modelo */
+    padding: 40px; 
+    margin-top: 15px; 
+    
+    /* ⭐ NOVO: Propriedade crucial para centralizar o bloco inteiro no contêiner */
+    justify-content: center; 
+    /* ⭐ NOVO: Centraliza tanto o conteúdo quanto o espaçamento */
+    place-content: center; 
+    
+    /* ⭐ NOVO: Garante que os itens individuais estejam centralizados nas suas colunas */
+    justify-items: center; 
+    
+    /* IMPORTANTE: Remova margens desnecessárias se houver */
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%; /* Garante que ele ocupe a largura total do content-container */
+}
+/* ----------------------------------------------------------- */
+/* Estilos do Card (Classes específicas para elementos do card) */
+/* ----------------------------------------------------------- */
+
+/* Estilo para a sobreposição do Rating (substitui .frame-2) */
+.rating-overlay {
+    background-color: #00000029;
+    backdrop-filter: blur(2.5px) brightness(100%);
+    -webkit-backdrop-filter: blur(2.5px) brightness(100%);
+}
+
+/* Estilo para o Botão Sinopse (substitui .div-wrapper, .frame-4, etc.) */
+.synopsis-button {
+    background-color: #003049;
+    color: #fff2dd;
+    border: none;
+    cursor: pointer;
+    font-family: "Sora-SemiBold", Helvetica;
+}
+
+/* Media Query para responsividade (opcional) */
+@media (max-width: 1400px) {
+    .movie-grid-layout {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+    }
+    .desktop .rectangle-fundo, .content-container {
+        width: 900px;
+        height: auto;
+    }
+}
+@media (max-width: 950px) {
+    .movie-grid-layout {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
+    .desktop .rectangle-fundo, .content-container {
+        width: 450px;
+    }
+}
+
+.reserve-button {
+/* Cores do tema: Fundo Azul Escuro, Texto Bege Claro */
+background-color: #003049; 
+color: #fff2dd; 
+ border: none;
+cursor: pointer;
+  /* Efeito hover para feedback */
+    &:hover {
+ background-color: #0d405b; /* Um azul um pouco mais claro no hover */
+ }
+}

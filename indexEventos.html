@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Lumière Eventos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="globalsEventos.css" />
+    <link rel="stylesheet" href="styleEventos.css" />
+</head>
+
+<body>
+    <div class="desktop">
+        <div class="rectangle-fundo"></div>
+
+        <div class="content-container">
+            <div class="header-content">
+                <a href="/" class="arrow-container">
+                    &lt;
+                </a>
+
+                <div class="logo-container">
+                    <img class="logo" src="./imgEventos/logo.png" alt="Logo Lumière" />
+                    <img class="title-eventos" src="./imgEventos/Eventos (1).png" alt="Eventos" />
+                </div>
+            </div>
+
+            <div id="movie-grid" class="movie-grid-layout">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="synopsis-modal"
+        class="hidden fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-70 transition-opacity duration-300">
+        <div class="bg-[#003049] rounded-xl shadow-2xl max-w-4xl w-full m-4 overflow-hidden relative"
+            style="max-width: 900px; padding: 20px;">
+
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+                aria-label="Fechar">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+
+            <div class="flex justify-center mb-6">
+                <img class="logo" src="./imgEventos/logo.png" alt="Logo Lumière" style="width: 150px;" />
+            </div>
+
+            <div class="modal-content-wrapper p-4 rounded-xl" style="background-color: #0d405b;">
+                <div class="w-full mb-6">
+
+                </div>
+
+                <div class="text-white">
+                    <h2 id="modal-title" class="text-4xl font-bold mb-4">Título do Filme</h2>
+                    <p id="modal-synopsis" class="text-lg leading-relaxed mb-6 font-light">Sinopse detalhada...</p>
+                </div>
+
+                <div class="flex justify-center mt-8">
+                    <button
+                        class="reserve-button font-bold py-3 px-12 rounded-xl text-xl transition-colors duration-200">
+                        Reservar
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    ...
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="scriptEventos.js"></script>
+</body>
+
+</html>
