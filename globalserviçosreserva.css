@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap');
+
+/* Reset Básico */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Estilos de Corpo e Fonte Padrão */
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Sora', sans-serif;
+    color: #333333; /* Cor de texto padrão */
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Foco para Acessibilidade */
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #e09f3ef3;
+    outline-offset: 2px;
+}

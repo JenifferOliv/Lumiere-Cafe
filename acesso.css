@@ -1,192 +1,304 @@
-/* ================================================== 
-   CONFIGURAÇÕES GERAIS DA PÁGINA DE ACESSO 
-   ================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200&display=swap');
 
-.login-body {
-    background-color: #FDF0D5; /* Fundo Creme */
-    font-family: 'Poppins', Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
+/* ------------------------------------------- */
+/* 1. CENTRALIZAÇÃO E EXPANSIVIDADE */
+/* ------------------------------------------- */
+.desktop {
+    background-color: #fff2dd;
+    width: 100%;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-page {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ================================================== 
-   CONTAINER PRINCIPAL (CAIXA ESCURA)
-   ================================================== */
-
-.access-container {
-    background-color: #542828; /* Marrom Lumière */
-    color: #FFF2DD; 
-    padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 450px; 
-    text-align: center;
     position: relative;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Cabeçalho do Formulário */
-.header-acesso h2 {
-    font-family: 'Caprasimo', cursive; 
-    font-size: 2.2rem;
-    color: #FFDEB4;
-    margin-bottom: 5px;
-    margin-top: 0;
+/* Caixa branca centralizada e Responsiva */
+.desktop .rectangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 90%; 
+    max-width: 1339px;
+    height: 90%;
+    max-height: 918px;
+    min-height: 600px;
+    
+    background-color: #ffffff;
+    border-radius: 40px;
+    z-index: 1; 
 }
 
-.header-acesso p {
-    font-size: 0.9em;
-    margin-bottom: 30px;
-    opacity: 0.9;
-    color: #FDF0D5;
+/* Os formulários agora usam a mesma abordagem responsiva da .rectangle */
+#cadastro-form,
+#login-form {
+    position: absolute;
+    z-index: 5; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; 
+    max-width: 1339px;
+    height: 90%;
+    max-height: 918px;
+    padding: 0 5%;
 }
 
-/* ================================================== 
-   TOGGLE (ABAS LOGIN / CADASTRO)
-   ================================================== */
-
-.form-toggle {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.form-toggle button {
-    flex-grow: 1;
-    padding: 10px 0;
-    background: none;
-    border: none;
-    color: #FFF2DD;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
-    opacity: 0.6;
-}
-
-.form-toggle button.active {
-    font-weight: 700;
-    opacity: 1;
-    border-bottom: 3px solid #FFF2DD; /* Linha de destaque */
-}
-
-/* ================================================== 
-   INPUTS E FORMULÁRIOS
-   ================================================== */
-
+/* CLASSE CRÍTICA PARA ALTERNÂNCIA DE TELAS */
 .hidden-form {
     display: none !important;
 }
 
-.input-group {
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9em;
+/* Link de Voltar ao Index */
+.desktop .back-to-index-link {
+    position: absolute;
+    top: 30px; 
+    left: 30px; 
+    font-family: "Poppins-Regular", Helvetica;
     font-weight: 400;
-    color: #FFDEB4;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    /* Fundo claro para contraste dentro da caixa escura */
-    background-color: #FFF2DD; 
-    border: 1px solid #FFC0CB; /* Borda Rosa */
-    border-radius: 6px;
-    color: #542828;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    box-sizing: border-box; /* Garante que o padding não estoure a largura */
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: #d4af37;
-    box-shadow: 0 0 5px rgba(255, 192, 203, 0.5);
-}
-
-/* ================================================== 
-   BOTÕES E LINKS
-   ================================================== */
-
-/* Botão Principal (CTA) */
-.access-container .btn.primary {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    background-color: #FFC0CB; /* Rosa */
-    color: #542828; /* Texto escuro */
-    border: none;
-    border-radius: 6px;
-    font-size: 1.1em;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
+    font-size: clamp(14px, 2vw, 18px);
+    color: #780000;
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    z-index: 20;
+    display: flex;
+    align-items: center;
 }
 
-.access-container .btn.primary:hover {
-    background-color: #ffb3c1;
-    transform: translateY(-2px);
-}
-
-/* Link Esqueceu a Senha */
-.forgot-password-link {
-    background: none;
-    border: none;
-    color: #FFDEB4;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.85em;
-    cursor: pointer;
+.desktop .back-to-index-link:hover {
     text-decoration: underline;
-    display: block;
+}
+
+.desktop .back-arrow {
+    margin-right: 5px;
+    font-size: 1.5em; 
+}
+
+/* ------------------------------------------- */
+/* 2. RÓTULOS, LINHAS e INPUTS */
+/* ------------------------------------------- */
+
+/* Estilos de Rótulos */
+.desktop .text-wrapper,
+.desktop .text-wrapper-2,
+.desktop .div {
+    position: absolute;
+    left: 10%;
+    font-family: "Poppins-ExtraLight", Helvetica;
+    font-weight: 200;
+    color: #000000;
+    font-size: clamp(24px, 3vw, 40px);
+    white-space: nowrap;
+}
+
+/* Estilos de Linhas */
+.desktop .frame-name,
+.desktop .frame-email,
+.desktop .frame-password {
+    position: absolute;
+    left: 10%; 
+    width: 80%;
+    height: 1px;
+    background-color: #780000;
+}
+
+/* INPUT FIELD */
+.desktop .input-field {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: clamp(20px, 2.5vw, 32px);
+    color: #000000;
+    width: 80%;
+    height: 60px;
+    line-height: 60px;
+    outline: none;
+    position: absolute; 
+    left: 10%;
+    z-index: 20;
+}
+
+
+/* ------------------------------------------- */
+/* 3. POSICIONAMENTO */
+/* ------------------------------------------- */
+
+/* --- CADASTRO POSITIONS --- */
+#cadastro-form .name-group .input-field { top: 245px; } 
+#cadastro-form .frame-name { top: 290px; } 
+#cadastro-form .email-group .input-field { top: 375px; } 
+#cadastro-form .frame-email { top: 420px; } 
+#cadastro-form .password-group .input-field { top: 506px; } 
+#cadastro-form .frame-password { top: 551px; } 
+
+
+/* --- LOGIN POSITIONS --- */
+#login-form .input-field[id="log-email"] { top: 300px; } 
+#login-form .frame-email { top: 345px; } 
+#login-form .input-field[id="log-senha"] { top: 430px; } 
+#login-form .frame-password { top: 475px; } 
+
+
+/* ------------------------------------------- */
+/* 4. CHECKBOX, BOTÃO E FEEDBACK */
+/* ------------------------------------------- */
+
+#cadastro-form .terms-group {
+    position: absolute;
+    top: 596px; 
+    left: 10%;
+    width: 80%; 
+    display: flex; 
+    align-items: center; 
+}
+
+/* Estilo para o container do texto */
+.terms-text-container {
     width: 100%;
-    text-align: right;
-    margin-bottom: 20px;
-    opacity: 0.8;
 }
 
-.forgot-password-link:hover {
-    opacity: 1;
-    color: #FFF;
+/* Estilo do Checkbox */
+.desktop .custom-checkbox { 
+    width: clamp(20px, 2.5vw, 24px); 
+    height: clamp(20px, 2.5vw, 24px); 
+    margin-right: clamp(10px, 2vw, 15px); 
+    flex-shrink: 0; 
 }
 
-/* Área de Mensagem (Feedback) */
-.message-area {
-    margin-top: 15px;
-    min-height: 20px;
-    font-size: 0.9em;
-    font-weight: 500;
+/* Estilo do Texto dos Termos */
+.desktop .aceita-o-dos-termos {
+    width: 100%; 
+    font-size: clamp(12px, 1.5vw, 16px);
+    line-height: 1.3;
 }
 
-/* ================================================== 
-   MODAL DE RECUPERAÇÃO DE SENHA
-   ================================================== */
 
-.hidden-modal {
+/* BOTÃO */
+.desktop .submit-btn {
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 814px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 644px;
+    height: clamp(40px, 6vw, 52px);
+    background-color: #e6ac4e;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    z-index: 20;
+}
+
+.desktop .submit-btn:hover {
+    background-color: #d89e41;
+}
+
+/* Texto "Cadastre-se" / "Entrar" */
+.desktop .text-wrapper-3 {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    line-height: 1; 
+    white-space: nowrap;
+    width: auto;
+}
+
+/* Mensagem de Feedback (Mantida para erros) */
+#cadastro-message, 
+#login-message {
+    position: absolute; 
+    top: 650px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 644px;
+    text-align: center;
+    font-family: "Poppins", Helvetica;
+    font-size: clamp(16px, 2.5vw, 20px);
+    min-height: 25px; 
+    z-index: 25; 
+}
+
+/* LINK/BOTÃO DE ALTERNÂNCIA */
+.desktop .toggle-link {
+    position: absolute;
+    top: 730px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    font-family: "Poppins-ExtraLight", Helvetica;
+    font-weight: 200;
+    font-size: clamp(14px, 2vw, 18px);
+    color: #000000;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 20;
+}
+.desktop .toggle-link:hover {
+    text-decoration: underline;
+    color: #780000;
+}
+
+/* Posição específica para o link de recuperação */
+#login-form #open-recovery-modal {
+    top: 505px; 
+    width: 200px;
+}
+
+#login-form #toggle-to-cadastro {
+    top: 550px;
+}
+
+/* LOGO e Título "Login" / "Cadastro" */
+.desktop .group {
+    position: absolute;
+    top: 85px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    max-width: 300px;
+    height: auto; 
+    z-index: 20; 
+}
+
+.desktop .text-wrapper-4 {
+    position: absolute;
+    top: 200px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    font-family: "Poppins-ExtraLightItalic", Helvetica;
+    font-weight: 200;
+    font-style: italic;
+    color: #780000;
+    font-size: clamp(40px, 6vw, 64px);
+    z-index: 20;
+}
+
+/* ------------------------------------------- */
+/* 5. MODAIS (RECOVERY E SUCESSO) */
+/* ------------------------------------------- */
+
+/* Classe para esconder elementos - essencial para o modal */
+.hidden-element {
     display: none !important;
 }
 
-.modal-overlay {
+/* Estilos de fundo e centralização do Modal (APLICADO A AMBOS) */
+#recovery-modal,
+#success-modal { 
     position: fixed;
     top: 0;
     left: 0;
@@ -196,60 +308,131 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
-    backdrop-filter: blur(2px);
+    z-index: 1000;
 }
 
 .modal-content {
-    background-color: #FDF0D5; /* Fundo claro no modal */
-    color: #542828;
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
     width: 90%;
     max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     text-align: center;
 }
 
-.modal-content h3 {
-    font-family: 'Caprasimo', serif;
-    font-size: 1.8em;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #542828;
-}
-
-.modal-content p {
-    font-size: 0.95em;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-/* Botão Fechar (X) */
-.close-btn {
+/* Estilo para o 'X' de fechar (APLICADO A AMBOS) */
+#close-recovery-modal,
+#close-success-modal { 
     position: absolute;
     top: 10px;
     right: 15px;
-    background: none;
-    border: none;
-    font-size: 2em;
-    color: #542828;
+    font-size: 24px;
     cursor: pointer;
+    color: #780000;
 }
 
-/* Ajuste específico para input dentro do modal claro */
-.modal-content input {
-    background-color: #fff;
-    border: 1px solid #542828;
-    color: #542828;
+/* Título e Texto do Modal de Sucesso */
+#success-modal h3 {
+    font-family: "Poppins-Regular", Helvetica;
+    color: #006600; /* Verde para sucesso */
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
-.modal-content .btn.primary {
-    background-color: #542828;
-    color: #FFDEB4;
+#success-modal #success-message {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
-.modal-content .btn.primary:hover {
-    background-color: #3a1a1a;
+/* Botão "Ir para Login" no Modal de Sucesso */
+#success-modal-to-login { 
+    background-color: #e6ac4e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+#success-modal-to-login:hover {
+    background-color: #d89e41;
+}
+
+/* Estilos de inputs e botão de recovery (mantidos) */
+#recovery-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#recovery-form button {
+    background-color: #e6ac4e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#recovery-form button:hover {
+    background-color: #d89e41;
+}
+
+#recovery-message {
+    margin-top: 15px;
+    min-height: 20px; 
+}
+/* ARQUIVO: acesso.css (SUBSTITUIR/AJUSTAR) */
+
+/* ------------------------------------------- */
+/* 4. MENSAGENS DE FEEDBACK (Visual Limpo)     */
+/* ------------------------------------------- */
+
+/* Estilos gerais para todas as mensagens de feedback */
+#cadastro-message,
+#login-message,
+#recovery-message {
+    /* Garante que o elemento tenha espaço e presença */
+    min-height: 25px; 
+    padding: 5px 0;
+    
+    text-align: center;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    
+    /* Zera qualquer cor de fundo ou borda forçada */
+    background-color: transparent !important; 
+    border: none !important; 
+    
+    /* Garante que a cor do texto seja definida apenas pelo JS (verde ou vermelho) */
+    color: inherit; 
+    
+    z-index: 100;
+}
+
+/* POSICIONAMENTO ESPECÍFICO PARA AS MENSAGENS DO FORMULÁRIO */
+#cadastro-message,
+#login-message {
+    position: absolute;
+    top: 650px; /* Mantenha se estiver funcionando, ajuste se necessário */
+    width: 80%; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* POSICIONAMENTO DA MENSAGEM DENTRO DO MODAL */
+#recovery-message {
+    position: relative; 
+    margin-top: 15px;
 }

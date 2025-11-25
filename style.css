@@ -556,29 +556,27 @@
 }
 
 .frame .rectangle-10 {
-  position: absolute;
-  top: 2170px;
-  left: 99px;
-  width: 388px;
-  height: 73px;
-  background-color: #003049;
-  border-radius: 25px;
+ position: absolute; /* Mantém a posição do botão na tela */
+ top: 2170px;
+ left: 99px;
+ width: 388px;
+ height: 73px;
+ background-color: #003049;
+ border-radius: 25px;
+ text-decoration: none; /* Opcional: remove o sublinhado do link */ 
+ /* 🌟 NOVO: Centraliza o conteúdo (texto) 🌟 */
+ display: flex;
+ align-items: center; /* Centraliza verticalmente */
+ justify-content: center; /* Centraliza horizontalmente */
 }
 
 .frame .text-wrapper-16 {
-  position: absolute;
-  top: 2183px;
-  left: 133px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: "Poppins", Helvetica;
-  font-weight: 500;
-  color: #fdf0d5;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
+ font-weight: 500;
+ color: #fdf0d5;
+ font-size: 32px;
+ letter-spacing: 0;
+ line-height: normal;
 }
 
 .frame .group-7 {

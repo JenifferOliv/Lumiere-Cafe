@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Faça sua Reserva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="globalpreencherreserva.css">
+    <link rel="stylesheet" href="stylepreencherreserva.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-primary': '#E09F3EF3',
+                        'card-bg': '#FFFDFB',
+                        'input-bg': '#F7F7F7',
+                        'button-bg': '#D6983C',
+                        'primary-text': '#4F4F4F',
+                    },
+                    boxShadow: {
+                        'input': '0 2px 4px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background-primary sora">
+
+    <div class="flex items-center justify-center p-4 sm:p-8 relative">
+        <div class="bg-card-bg w-full max-w-sm sm:max-w-md rounded-xl shadow-2xl p-6 sm:p-8 my-8 relative">
+
+            <button onclick="history.back();"
+                class="absolute top-6 left-6 text-primary-text hover:text-gray-600 transition duration-150 z-10">
+                <i data-lucide="arrow-left" class="w-7 h-7"></i>
+            </button>
+            <div class="flex flex-col items-center mb-6">
+                <div class="text-center mb-4 relative" style="line-height: 0.8;">
+                    <div class="content-box">
+                        <img src="/imagens reserva/logo.png" alt="Logo Lumière Café" class="logo-image" />
+                    </div>
+                    <img src="/imagens reserva/biscoitoreserva.png" alt="Imagem ilustrativa de cookies Red Velvet"
+                        class="rounded-lg shadow-md w-full max-w-xs aspect-video object-cover">
+                </div>
+
+                <h2 class="sora font-semibold text-xl text-primary-text text-center mb-6">
+                    FAÇA SUA RESERVA
+                </h2>
+
+                <!-- CAMPOS DE INPUT VERTICAIS -->
+                <div class="flex flex-col gap-4 mb-4">
+
+                    <!-- 1. Dia da Reserva (Calendário) -->
+                    <div id="input-dia-toggle" onclick="toggleModal('modal-dia', 'input-dia-toggle');"
+                        class="input-box rounded-xl p-4 cursor-pointer flex items-center justify-between transition duration-150 shadow-input">
+                        <div class="flex items-center">
+                            <i data-lucide="calendar" class="w-6 h-6 text-primary-text mr-4"></i>
+                            <div class="flex flex-col">
+                                <p class="sora font-semibold text-sm text-primary-text">Dia da reserva</p>
+                                <p id="dia-selecionado" class="sora text-sm text-gray-500">Selecione</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-600 ml-4"></i>
+                    </div>
+
+                    <div id="input-pessoas-toggle" onclick="toggleModal('modal-pessoas', 'input-pessoas-toggle');"
+                        class="input-box rounded-xl p-4 cursor-pointer flex items-center justify-between transition duration-150 shadow-input">
+                        <div class="flex items-center">
+                            <i data-lucide="user" class="w-6 h-6 text-primary-text mr-4"></i>
+                            <div class="flex flex-col">
+                                <p class="sora font-semibold text-sm text-primary-text">Pessoas</p>
+                                <p id="pessoas-selecionadas" class="sora text-sm text-gray-500">Selecione</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-600 ml-4"></i>
+                    </div>
+
+                    <!-- 3. Horário -->
+                    <div id="input-horario-toggle" onclick="toggleModal('modal-horario', 'input-horario-toggle');"
+                        class="input-box rounded-xl p-4 cursor-pointer flex items-center justify-between transition duration-150 shadow-input">
+                        <div class="flex items-center">
+                            <i data-lucide="clock" class="w-6 h-6 text-primary-text mr-4"></i>
+                            <div class="flex flex-col">
+                                <p class="sora font-semibold text-sm text-primary-text">Horário</p>
+                                <p id="horario-selecionado" class="sora text-sm text-gray-500">Selecione</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-600 ml-4"></i>
+                    </div>
+                </div>
+
+                <!-- Notas Especiais (Opcional) -->
+                <div class="input-box notes rounded-xl p-4 mb-8 flex flex-col transition duration-150 shadow-input">
+                    <div class="flex items-start mb-2">
+                        <i data-lucide="pencil-line" class="w-6 h-6 text-primary-text mr-4 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <p class="sora font-semibold text-sm text-primary-text">Precisa de algo especial? (Opcional)
+                            </p>
+                            <p class="sora text-xs text-gray-500">Ex: Aniversários, ocasiões especiais, etc</p>
+                        </div>
+                    </div>
+                    <textarea id="observacoes" rows="3" placeholder="Insira aqui suas observações..."
+                        class="sora w-full mt-2 p-1 text-sm text-gray-700 bg-transparent resize-none focus:outline-none placeholder-gray-400"></textarea>
+                </div>
+
+                <!-- BOTÃO CONTINUAR -->
+                <button id="btn-continuar" onclick="processarReserva()"
+                    class="w-full bg-button-bg hover:bg-amber-800 text-white sora font-semibold text-xl py-4 rounded-xl shadow-lg transition duration-300">
+                    Continuar
+                </button>
+
+                <!-- Mensagem de feedback (substitui alert/confirm) -->
+                <div id="feedback-message" class="mt-4 text-center text-sm sora font-semibold text-green-700 hidden">
+                </div>
+
+            </div>
+
+            <!-- MODAIS SIMULADOS -->
+            <!-- Modal Dia da Reserva (Calendário) -->
+            <div id="modal-dia"
+                class="absolute hidden top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 bg-white rounded-lg shadow-2xl z-20 p-4 border border-gray-200">
+                <div class="flex justify-between items-center mb-3">
+                    <!-- Botão Anterior -->
+                    <button onclick="changeMonth(-1)"
+                        class="text-primary-text hover:bg-gray-100 rounded-full p-1 transition disabled:opacity-30 disabled:cursor-not-allowed"
+                        id="prev-month-btn">
+                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Mês e Ano -->
+                    <h3 id="current-month-year" class="sora font-bold text-lg text-primary-text text-center mx-4"></h3>
+                    <!-- Botão Próximo -->
+                    <button onclick="changeMonth(1)"
+                        class="text-primary-text hover:bg-gray-100 rounded-full p-1 transition">
+                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Headers dos dias da semana (D=Dom, S=Seg) -->
+                <div class="grid grid-cols-7 gap-1 text-center text-xs sora mb-2 font-semibold">
+                    <span class="text-red-500">D</span>
+                    <span>S</span>
+                    <span>T</span>
+                    <span>Q</span>
+                    <span>Q</span>
+                    <span>S</span>
+                    <span class="text-blue-500">S</span>
+                </div>
+
+                <!-- Corpo do Calendário -->
+                <div id="calendario-corpo" class="grid grid-cols-7 gap-1 text-center text-sm sora">
+                    <!-- Dias serão gerados pelo JavaScript em renderCalendar() -->
+                </div>
+                <button onclick="toggleModal('modal-dia', 'input-dia-toggle');"
+                    class="mt-4 w-full text-sm text-button-bg hover:text-amber-800 font-semibold p-2 rounded-lg">Fechar</button>
+            </div>
+
+            <!-- Modal Pessoas (1 a 8) -->
+            <div id="modal-pessoas"
+                class="absolute hidden top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 bg-white rounded-lg shadow-2xl z-20 p-4 border border-gray-200">
+                <h3 class="sora font-bold text-lg mb-3 text-center text-primary-text">Quantas Pessoas? (1 a 8)</h3>
+                <div class="flex flex-col gap-2">
+                    <button onclick="selectValue('pessoas', '1 Pessoa');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">1
+                        Pessoa</button>
+                    <button onclick="selectValue('pessoas', '2 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">2
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '3 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">3
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '4 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">4
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '5 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">5
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '6 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">6
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '7 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">7
+                        Pessoas</button>
+                    <button onclick="selectValue('pessoas', '8 Pessoas');"
+                        class="p-2 w-full text-left text-sm text-primary-text hover:bg-amber-100 rounded transition">8
+                        Pessoas</button>
+                </div>
+            </div>
+
+            <!-- Modal Horário (17h a 20h - a cada 30 min) -->
+            <div id="modal-horario"
+                class="absolute hidden top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 bg-white rounded-lg shadow-2xl z-20 p-4 border border-gray-200">
+                <h3 class="sora font-bold text-lg mb-3 text-center text-primary-text">Selecione o Horário</h3>
+                <div id="horario-corpo" class="flex flex-col gap-2">
+                    <!-- Horários serão gerados pelo JavaScript em initTimeSlots() -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Script de Funcionalidade (JavaScript) -->
+        <script>
+            // Inicializa os ícones do Lucide
+            lucide.createIcons();
+
+            let reserva = {
+                dia: null,
+                pessoas: null,
+                horario: null,
+                observacoes: ''
+            };
+
+            // Estado do calendário
+            const today = new Date();
+            const initialDate = new Date(today.getFullYear(), today.getMonth(), 1); // Começa no primeiro dia do mês atual
+            let currentMonth = initialDate.getMonth();
+            let currentYear = initialDate.getFullYear();
+            const monthNamesPT = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+            // Função para formatar a data como DD/MMM
+            const formatDate = (date) => {
+                const day = date.getDate().toString().padStart(2, '0');
+                const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+                const month = monthNames[date.getMonth()];
+                return `${day}/${month}`;
+            };
+
+            // Função para renderizar o calendário
+            const renderCalendar = () => {
+                const calendarBody = document.getElementById('calendario-corpo');
+                const monthYearDisplay = document.getElementById('current-month-year');
+                const prevMonthBtn = document.getElementById('prev-month-btn');
+
+                // 1. Atualiza o cabeçalho do mês e ano
+                let yearDisplay = currentYear;
+                if (currentYear !== today.getFullYear()) {
+                    yearDisplay = `${currentYear}`;
+                } else {
+                    yearDisplay = '';
+                }
+                monthYearDisplay.textContent = `${monthNamesPT[currentMonth]} ${yearDisplay}`;
+
+                // 2. Desabilita o botão de voltar mês se for o mês atual
+                const isCurrentMonth = currentMonth === today.getMonth() && currentYear === today.getFullYear();
+                prevMonthBtn.disabled = isCurrentMonth;
+
+                // 3. Limpa os dias anteriores
+                calendarBody.innerHTML = '';
+
+                // 4. Calcula o primeiro dia do mês a ser exibido
+                const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+                let startDay = firstDayOfMonth.getDay(); // 0 = Domingo, 1 = Segunda
+
+                // 5. Preenche os espaços vazios iniciais
+                for (let i = 0; i < startDay; i++) {
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.classList.add('p-1', 'text-gray-400');
+                    calendarBody.appendChild(emptyDiv);
+                }
+
+                // 6. Adiciona os dias do mês
+                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+                const todayDay = today.getDate();
+                const todayMonth = today.getMonth();
+                const todayYear = today.getFullYear();
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(currentYear, currentMonth, day);
+                    const dayOfWeek = date.getDay(); // 0 = Domingo
+
+                    const dayDiv = document.createElement('div');
+                    dayDiv.classList.add('p-1', 'rounded', 'font-medium', 'flex', 'items-center', 'justify-center', 'aspect-square');
+                    dayDiv.textContent = day;
+
+                    const isPast = (currentYear === todayYear && currentMonth === todayMonth && day < todayDay);
+                    const isSunday = dayOfWeek === 0;
+
+                    if (isSunday || isPast) { // Domingo ou Data Passada
+                        dayDiv.classList.add('bg-red-100', 'text-red-400', 'cursor-not-allowed', 'opacity-60', 'line-through');
+                        dayDiv.title = isSunday ? 'Fechado aos Domingos' : 'Data passada';
+                    } else { // Dias disponíveis
+                        dayDiv.classList.add('day-option', 'cursor-pointer', 'hover:bg-amber-200', 'transition', 'text-primary-text');
+                        const formattedDate = formatDate(date);
+                        dayDiv.onclick = () => selectValue('dia', formattedDate);
+
+                        if (currentYear === todayYear && currentMonth === todayMonth && day === todayDay) {
+                            dayDiv.classList.add('bg-button-bg', 'text-white', 'shadow-md', 'hover:bg-amber-700'); // Destaque para Hoje
+                        }
+                    }
+
+                    calendarBody.appendChild(dayDiv);
+                }
+            };
+
+            // Função para mudar o mês
+            const changeMonth = (offset) => {
+                currentMonth += offset;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                } else if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                // Garante que não volte para um mês anterior ao atual no ano atual
+                if (currentYear === today.getFullYear() && currentMonth < today.getMonth()) {
+                    currentMonth = today.getMonth();
+                }
+
+                renderCalendar();
+            };
+
+            // Função para inicializar os slots de horário (17:00h a 20:00h, a cada 30 min)
+            const initTimeSlots = () => {
+                const timeSlotsContainer = document.getElementById('horario-corpo');
+                timeSlotsContainer.innerHTML = ''; // Limpa slots antigos
+
+                const startHour = 17;
+                const endHour = 20;
+
+                for (let hour = startHour; hour <= endHour; hour++) {
+                    // Horário em ponto (ex: 17:00h)
+                    let time1 = `${hour.toString().padStart(2, '0')}:00h`;
+                    let btn1 = createTimeButton(time1);
+                    timeSlotsContainer.appendChild(btn1);
+
+                    // Horário de meia hora (ex: 17:30h), apenas se não for depois do horário final (20:00h)
+                    if (hour < endHour) {
+                        let time2 = `${hour.toString().padStart(2, '0')}:30h`;
+                        let btn2 = createTimeButton(time2);
+                        timeSlotsContainer.appendChild(btn2);
+                    }
+                }
+            };
+
+            // Função auxiliar para criar botões de horário
+            const createTimeButton = (time) => {
+                const button = document.createElement('button');
+                button.onclick = () => selectValue('horario', time);
+                button.classList.add('p-2', 'w-full', 'text-left', 'text-sm', 'text-primary-text', 'hover:bg-amber-100', 'rounded', 'transition');
+                button.textContent = time;
+                return button;
+            };
+
+
+            // Função para alternar a visibilidade dos modais e dar feedback visual no input
+            const toggleModal = (modalId, inputId) => {
+                // Fecha todos os outros modais
+                document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+                    if (modal.id !== modalId) {
+                        modal.classList.add('hidden');
+                    }
+                });
+                // Remove o destaque de todos os inputs
+                document.querySelectorAll('[id^="input-"]').forEach(input => {
+                    input.classList.remove('ring-2', 'ring-button-bg');
+                });
+
+
+                const modalElement = document.getElementById(modalId);
+                const inputElement = document.getElementById(inputId);
+
+                modalElement.classList.toggle('hidden');
+
+                // Se for o modal do dia, renderiza o calendário antes de abrir
+                if (modalId === 'modal-dia' && !modalElement.classList.contains('hidden')) {
+                    // Reinicia o calendário para o mês atual ao abrir
+                    currentMonth = today.getMonth();
+                    currentYear = today.getFullYear();
+                    renderCalendar();
+                }
+
+                // Se for o modal do horário, renderiza os slots de horário
+                if (modalId === 'modal-horario' && !modalElement.classList.contains('hidden')) {
+                    initTimeSlots();
+                }
+
+                if (!modalElement.classList.contains('hidden')) {
+                    inputElement.classList.add('ring-2', 'ring-button-bg');
+                }
+            };
+
+            // Função para selecionar um valor e atualizar o estado
+            const selectValue = (field, value) => {
+                reserva[field] = value;
+
+                let displayElementId;
+                let modalId;
+
+                if (field === 'dia') {
+                    displayElementId = 'dia-selecionado';
+                    modalId = 'modal-dia';
+                } else if (field === 'pessoas') {
+                    displayElementId = 'pessoas-selecionadas';
+                    modalId = 'modal-pessoas';
+                } else if (field === 'horario') {
+                    displayElementId = 'horario-selecionado';
+                    modalId = 'modal-horario';
+                }
+
+                document.getElementById(displayElementId).textContent = value;
+                toggleModal(modalId, `input-${field}-toggle`);
+            };
+
+            // Função principal do botão Continuar
+            const processarReserva = () => {
+                reserva.observacoes = document.getElementById('observacoes').value.trim();
+
+                if (!reserva.dia || !reserva.pessoas || !reserva.horario) {
+                    showFeedback('⚠️ Por favor, selecione o Dia, o Horário e o Número de Pessoas.', 'text-red-600');
+                    return;
+                }
+
+                console.log('--- Dados da Reserva Final ---');
+                console.log(`Dia: ${reserva.dia}`);
+                console.log(`Pessoas: ${reserva.pessoas}`);
+                console.log(`Horário: ${reserva.horario}`);
+                console.log(`Observações: ${reserva.observacoes || 'Nenhuma'}`);
+                console.log('------------------------------');
+
+                showFeedback('✅ Reserva pronta para envio! Você será redirecionado para a confirmação.', 'text-green-700');
+
+                // Simula o redirecionamento
+                setTimeout(() => {
+                    console.log('Redirecionando...');
+                }, 3000);
+            };
+
+            // Função para exibir feedback na tela (Substitui alert())
+            const showFeedback = (message, colorClass = 'text-green-700') => {
+                const feedbackElement = document.getElementById('feedback-message');
+                feedbackElement.textContent = message;
+                feedbackElement.className = `mt-4 text-center text-sm sora font-semibold ${colorClass}`;
+                feedbackElement.classList.remove('hidden');
+
+                // Oculta a mensagem após 5 segundos, a menos que seja uma mensagem de sucesso final
+                setTimeout(() => {
+                    feedbackElement.classList.add('hidden');
+                }, 5000);
+            };
+
+            // Adiciona um listener para fechar modais ao clicar fora
+            document.addEventListener('click', (event) => {
+                const isModal = event.target.closest('[id^="modal-"]');
+                const isInput = event.target.closest('[id$="-toggle"]');
+
+                if (!isModal && !isInput) {
+                    document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+                        modal.classList.add('hidden');
+                    });
+                    document.querySelectorAll('[id^="input-"]').forEach(input => {
+                        input.classList.remove('ring-2', 'ring-button-bg');
+                    });
+                }
+            });
+        </script>
+</body>
+
+</html>

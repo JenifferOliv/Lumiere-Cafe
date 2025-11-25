@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
+
+/* Classe para aplicar a fonte Sora globalmente (usada na tag <body> do HTML) */
+.sora { 
+    font-family: 'Sora', sans-serif; 
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. ESTILOS DO CARD E FUNDO */
+/* ---------------------------------------------------- */
+
+/* Fundo da página (cor primária definida no Tailwind config) */
+.bg-background-primary {
+    /* Cor de fallback (se Tailwind não carregar) */
+    background-color: #E9BF68; 
+    min-height: 100vh;
+}
+
+/* Fundo do card (branco/creme definido no Tailwind config) */
+.bg-card-bg {
+    /* Cor de fallback (se Tailwind não carregar) */
+    background-color: #FFFDFB; 
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. ESTILOS DOS CAMPOS DE INPUT (VISUAL DO OBJETIVO) */
+/* ---------------------------------------------------- */
+
+/* Container principal para os inputs (v2) */
+.input-box-v2 {
+    background-color: #FFFDFB; /* Fundo do card, o input não tem fundo separado */
+    border: 1px solid #D6D6D6; /* Borda cinza suave */
+    height: 70px; 
+    border-radius: 10px; /* Borda mais arredondada */
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem; /* Padding interno sutil */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra suave mantida */
+}
+
+/* Novo estilo para o quadrado de fundo do ícone */
+.icon-square-v2 {
+    background-color: #F0F0F0; /* Cor de fundo cinza claro */
+    width: 40px; 
+    height: 40px;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Estilo para o ícone de Lucide (dentro do quadrado) */
+.icon-style-v2 {
+    color: #ffb555; /* Cor cinza sutil para o ícone */
+    width: 20px; 
+    height: 20px;
+    opacity: 0.9; 
+}
+
+/* Estilo para o ícone de dropdown (chevron) */
+.chevron-style-v2 {
+    color: #787878; /* Cor cinza sutil para o chevron */
+    opacity: 0.7;
+}
+
+/* Estilo específico para a caixa de Notas Especiais */
+.input-box-v2.notes {
+    height: auto; 
+    min-height: 120px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+/* Estilo para o ícone do lápis nas notas, sem o quadrado de fundo */
+.input-box-v2.notes .icon-style-v2 {
+    margin-right: 0.5rem;
+    color: #787878;
+}
+
+/* Garante que o texto do placeholder na observação use a cor cinza correta */
+.input-box-v2 textarea::placeholder {
+    color: #A0A0A0; /* Cor de placeholder sutil */
+    opacity: 1; /* Garante que a opacidade padrão do browser não interfira */
+}
+
+/* ---------------------------------------------------- */
+/* 4. ESTILOS DA LOGO */
+/* ---------------------------------------------------- */
+
+/* Ajuste: reduzir a logo e sobrepor metade dela à imagem abaixo */
+.logo-image {
+  width: 140px; 
+  height: auto;
+  display: block;
+  margin: 0;
+  position: relative;
+  left: 0;
+  top: 50px; /* ajuste conforme necessário */
+  z-index: 5;
+  transform: translateY(-50%); /* metade sobreposta à imagem */
+  transition: transform 0.2s ease;
+}
+
+/* Responsivo: menor em telas pequenas */
+@media (max-width: 600px) {
+  .logo-image {
+    width: 90px;
+    transform: translateY(20%);
+  }
+}

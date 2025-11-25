@@ -1,0 +1,7 @@
+/* Importação da fonte Sora (utilizada no design original) */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+/* Classe para aplicar a fonte Sora */
+.sora {
+    font-family: 'Sora', sans-serif;
+}

@@ -1,0 +1,163 @@
+.desktop {
+    background-color: #e09f3ef3; /* Cor externa, tom de laranja */
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centralizado verticalmente, ajustado para ser mais fiel à imagem. */
+    padding: 50px 0; /* Espaçamento padrão */
+}
+
+.main-container {
+    position: relative;
+    width: 800px; 
+    max-width: 90%; 
+    background-color: #fff2dd; /* Cor interna levemente amarelada */
+    border-radius: 12px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-box {
+    background-color: #e1d7c6; /* Cor do container de conteúdo (cinza/bege) */
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 692px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-top: 20px;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 30px; 
+    left: 30px; 
+    font-size: 30px;
+    color: #5d4a36;
+    transition: transform 0.2s;
+}
+
+.back-arrow:hover {
+    transform: translateX(-5px);
+} 
+
+.logo-image {
+    width: 250px;
+    height: auto;
+    align-self: center;
+    margin-bottom: 0px;
+    margin-top:-80px;
+    opacity: 0.8; 
+}
+
+.welcome-text, .question-title {
+    align-self: flex-start;
+    color: #ffffff
+}
+.welcome-text {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+.question-title {
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom:10px;
+}
+
+/* Botões de Serviço */
+.button-link {
+    width: 100%;
+    background-color: #e1d7c6;
+    border-radius: 12px;
+    border: 0.5px solid #dfc7a8; 
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.button-link:last-child {
+    margin-bottom: 0;
+}
+
+.button-link:hover {
+    background-color: #ffc164f3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Ícones dos Botões */
+.button-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    object-fit: contain;
+    display: block; 
+
+}
+
+.button-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-text-group .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff; 
+    line-height: 1.2;
+}
+
+.button-text-group .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #888888; 
+    line-height: 1.2;
+}
+/* Estilos customizados para a estética */
+.bg-background-primary {
+    /* Cor externa (laranja/marrom claro) - E09F3EF3 */
+    background-color: #e09f3ef3; 
+    min-height: 100vh;
+}
+
+.bg-card-bg {
+    /* Cor interna do card (creme) - FFF2DD */
+    background-color: #fff2dd; 
+}
+
+/* Estilo para os inputs de seleção (Dia, Pessoas, Horário) */
+.input-box {
+    /* Cor de fundo suave para inputs - F7F3EC */
+    background-color: #f7f3ec; 
+    border: 1px solid #e5e7eb; /* Borda mais clara */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: all 0.2s;
+    height: 70px; /* Altura padrão para os inputs lado a lado */
+}
+
+.input-box:hover {
+    border-color: #d6983c; /* Cor da borda ao passar o mouse (marrom/âmbar) */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* Estilo para a caixa de Notas Especiais */
+.input-box.notes {
+    background-color: #f7f3ec;
+    border: 1px solid #e5e7eb; 
+    padding-top: 10px;
+    height: 150px; /* Maior altura para o campo de texto */
+}
+
+/* Estilo para o botão Continuar */
+.bg-button-bg {
+    /* Cor do botão (marrom/âmbar) - D6983C */
+    background-color: #d6983c; 
+}
