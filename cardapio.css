@@ -172,7 +172,6 @@ body {
 }
 
 .product-item img {
-    /* FORMATO 200x200px QUADRADO */
     width: 200px; 
     height: 200px; 
     object-fit: cover; 
