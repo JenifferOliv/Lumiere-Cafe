@@ -1,4 +1,4 @@
-// ARQUIVO: acesso.js (Versão Limpa - Fluxo de Sucesso)
+// ARQUIVO: acesso.js (Versão Final e Limpa - Fluxo de Sucesso)
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showForm(formToShow) {
         if(cadastroForm) cadastroForm.reset();
         if(loginForm) loginForm.reset();
+        // Limpa mensagens ao alternar
         showFeedback('login-message', '', false);
         showFeedback('cadastro-message', '', false);
         if (recoveryMessage) recoveryMessage.innerHTML = ''; 
@@ -85,16 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            showFeedback('cadastro-message', ' Processando cadastro...', false);
+            showFeedback('cadastro-message', '⏳ Processando cadastro...', false);
 
             // SIMULAÇÃO DE ESPERA
             await new Promise(resolve => setTimeout(resolve, 800));
             
             // MOSTRA A MENSAGEM E REDIRECIONA PARA O INDEX
-            showFeedback('cadastro-message', 'Cadastro realizado com sucesso! Redirecionando para o Index...', true);
+            showFeedback('cadastro-message', '✅ Cadastro realizado com sucesso!', true);
             
             cadastroForm.reset();
-            // Redireciona para o index.html
+            // Redireciona para o index.html após 1.8 segundos
             setTimeout(() => { window.location.href = 'index.html'; }, 1800); 
         });
     }
@@ -107,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            showFeedback('login-message', ' Tentando login...', false);
+            showFeedback('login-message', '⏳ Tentando login...', false);
 
             // SIMULAÇÃO DE ESPERA
             await new Promise(resolve => setTimeout(resolve, 800));
 
             // MOSTRA A MENSAGEM E REDIRECIONA PARA O INDEX
-            showFeedback('login-message', 'Login realizado com sucesso! Redirecionando para o Index...', true);
+            showFeedback('login-message', '✅ Login realizado com sucesso!', true);
             setTimeout(() => { window.location.href = 'index.html'; }, 1800);
         });
     }
@@ -141,13 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
         recoveryForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            showFeedback('recovery-message', ' Enviando link de recuperação...', false);
+            showFeedback('recovery-message', '⏳ Enviando link de recuperação...', false);
 
             // SIMULAÇÃO DE ESPERA
             await new Promise(resolve => setTimeout(resolve, 800));
 
             // MOSTRA A MENSAGEM
-            showFeedback('recovery-message', 'Sucesso! Um link para redefinir sua senha foi enviado para seu e-mail.', true);
+            showFeedback('recovery-message', '📧 Sucesso! Um link para redefinir sua senha foi enviado para seu e-mail.', true);
             recoveryForm.reset();
         });
     }

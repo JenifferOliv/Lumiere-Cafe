@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200&display=swap');
 
 /* ------------------------------------------- */
+/* 0. CORREÇÃO DE BORDAS BRANCAS E OVERFLOW HORIZONTAL */
+/* ------------------------------------------- */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* CRÍTICO: Impede que o conteúdo cause barra de rolagem horizontal e as bordas brancas */
+    overflow-x: hidden; 
+    height: 100%;
+}
+
+/* ------------------------------------------- */
 /* 1. CENTRALIZAÇÃO E EXPANSIVIDADE */
 /* ------------------------------------------- */
 .desktop {
     background-color: #fff2dd;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh; /* Garante que ocupe a altura total da tela */
     position: relative;
     display: flex; 
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0; /* Removido padding para evitar overflow */
 }
 
 /* Caixa branca centralizada e Responsiva */
@@ -23,8 +35,9 @@
     
     width: 90%; 
     max-width: 1339px;
-    height: 90%;
-    max-height: 918px;
+    /* AJUSTE CHAVE: Altura aumentada para caber tudo */
+    height: 95vh; 
+    max-height: 1000px; /* Aumentado o limite de altura */
     min-height: 600px;
     
     background-color: #ffffff;
@@ -32,19 +45,29 @@
     z-index: 1; 
 }
 
-/* Os formulários agora usam a mesma abordagem responsiva da .rectangle */
+/* Os formulários agora usam o fluxo de layout Flexbox */
 #cadastro-form,
 #login-form {
     position: absolute;
     z-index: 5; 
-    top: 50%;
+    /* AJUSTE CHAVE: Subindo o bloco para 58% (estava em 65%) */
+    top: 58%; 
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%; 
-    max-width: 1339px;
-    height: 90%;
-    max-height: 918px;
+    transform: translate(-50%, -50%); /* Centraliza o formulário */
+    
+    width: 80%; 
+    max-width: 1000px;
+    height: auto;
+    max-height: 90vh;
+    
     padding: 0 5%;
+    overflow-y: auto; /* Permite scroll em telas pequenas */
+    
+    /* CRÍTICO: Usa Flexbox para centralizar e organizar o conteúdo interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0; /* Garante que os elementos não tenham espaçamento indesejado por padrão */
 }
 
 /* CLASSE CRÍTICA PARA ALTERNÂNCIA DE TELAS */
@@ -78,31 +101,42 @@
 }
 
 /* ------------------------------------------- */
-/* 2. RÓTULOS, LINHAS e INPUTS */
+/* 2. RÓTULOS, LINHAS e INPUTS (FLUIDO E CENTRALIZADO) */
 /* ------------------------------------------- */
+
+/* Contêiner de cada grupo de input: VOLTA PARA FLUXO NORMAL */
+.desktop .input-group {
+    position: relative; 
+    width: 100%;
+    max-width: 644px; /* Limita a largura dos campos */
+    /* AJUSTE: Espaçamento reduzido entre os campos */
+    margin-bottom: clamp(20px, 3vw, 30px); 
+}
 
 /* Estilos de Rótulos */
 .desktop .text-wrapper,
 .desktop .text-wrapper-2,
 .desktop .div {
-    position: absolute;
-    left: 10%;
+    position: static; 
+    left: auto;
     font-family: "Poppins-ExtraLight", Helvetica;
     font-weight: 200;
     color: #000000;
     font-size: clamp(24px, 3vw, 40px);
     white-space: nowrap;
+    margin-left: 0;
 }
 
 /* Estilos de Linhas */
 .desktop .frame-name,
 .desktop .frame-email,
 .desktop .frame-password {
-    position: absolute;
-    left: 10%; 
-    width: 80%;
+    position: static; 
+    left: auto; 
+    width: 100%; 
     height: 1px;
     background-color: #780000;
+    margin-top: 5px;
 }
 
 /* INPUT FIELD */
@@ -112,47 +146,38 @@
     padding: 0;
     font-size: clamp(20px, 2.5vw, 32px);
     color: #000000;
-    width: 80%;
+    width: 100%; /* Ocupa a largura do input-group */
     height: 60px;
     line-height: 60px;
     outline: none;
-    position: absolute; 
-    left: 10%;
+    position: static; 
+    left: auto;
     z-index: 20;
 }
 
 
 /* ------------------------------------------- */
-/* 3. POSICIONAMENTO */
+/* 3. POSICIONAMENTO (REMOVIDO COMPLETAMENTE) */
 /* ------------------------------------------- */
 
-/* --- CADASTRO POSITIONS --- */
-#cadastro-form .name-group .input-field { top: 245px; } 
-#cadastro-form .frame-name { top: 290px; } 
-#cadastro-form .email-group .input-field { top: 375px; } 
-#cadastro-form .frame-email { top: 420px; } 
-#cadastro-form .password-group .input-field { top: 506px; } 
-#cadastro-form .frame-password { top: 551px; } 
-
-
-/* --- LOGIN POSITIONS --- */
-#login-form .input-field[id="log-email"] { top: 300px; } 
-#login-form .frame-email { top: 345px; } 
-#login-form .input-field[id="log-senha"] { top: 430px; } 
-#login-form .frame-password { top: 475px; } 
+/* NOTA: Blocos de posicionamento fixo removidos para usar o Flexbox */
 
 
 /* ------------------------------------------- */
-/* 4. CHECKBOX, BOTÃO E FEEDBACK */
+/* 4. CHECKBOX, BOTÃO E FEEDBACK (FLUIDO E COMPACTO) */
 /* ------------------------------------------- */
 
 #cadastro-form .terms-group {
-    position: absolute;
-    top: 596px; 
-    left: 10%;
-    width: 80%; 
+    position: relative; 
+    top: auto; 
+    left: auto;
+    width: 100%; 
+    max-width: 644px; /* Limita a largura dos termos */
     display: flex; 
     align-items: center; 
+    /* AJUSTE: Espaçamento reduzido */
+    margin-top: clamp(10px, 1.5vw, 15px);
+    margin-bottom: clamp(15px, 2vw, 25px);
 }
 
 /* Estilo para o container do texto */
@@ -180,12 +205,13 @@
 .desktop .submit-btn {
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 814px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 644px;
+    position: relative; 
+    top: auto; 
+    left: auto;
+    transform: none; 
+
+    width: 100%;
+    max-width: 644px; /* Garante alinhamento com os campos */
     height: clamp(40px, 6vw, 52px);
     background-color: #e6ac4e;
     border-radius: 20px;
@@ -196,6 +222,9 @@
     align-items: center;
     padding: 0; 
     z-index: 20;
+    /* AJUSTE CHAVE: Margem reduzida para subir mais o botão */
+    margin-top: clamp(10px, 2vw, 20px); 
+    margin-bottom: 10px;
 }
 
 .desktop .submit-btn:hover {
@@ -217,26 +246,32 @@
 /* Mensagem de Feedback (Mantida para erros) */
 #cadastro-message, 
 #login-message {
-    position: absolute; 
-    top: 650px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    position: relative; 
+    top: auto; 
+    left: auto;
+    transform: none;
+
+    width: 100%;
     max-width: 644px;
     text-align: center;
     font-family: "Poppins", Helvetica;
     font-size: clamp(16px, 2.5vw, 20px);
     min-height: 25px; 
     z-index: 25; 
+    /* AJUSTE: Margem de cima e baixo reduzida */
+    margin-top: 5px; 
+    margin-bottom: 5px; 
 }
 
 /* LINK/BOTÃO DE ALTERNÂNCIA */
 .desktop .toggle-link {
-    position: absolute;
-    top: 730px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    position: relative; 
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: 644px; /* Garante alinhamento */
     font-family: "Poppins-ExtraLight", Helvetica;
     font-weight: 200;
     font-size: clamp(14px, 2vw, 18px);
@@ -245,6 +280,9 @@
     cursor: pointer;
     white-space: nowrap;
     z-index: 20;
+    /* AJUSTE: Margem reduzida */
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .desktop .toggle-link:hover {
     text-decoration: underline;
@@ -253,18 +291,18 @@
 
 /* Posição específica para o link de recuperação */
 #login-form #open-recovery-modal {
-    top: 505px; 
-    width: 200px;
+    top: auto; 
+    width: 100%;
 }
 
 #login-form #toggle-to-cadastro {
-    top: 550px;
+    top: auto;
 }
 
-/* LOGO e Título "Login" / "Cadastro" */
+/* LOGO e Título "Login" / "Cadastro" (Posicionamento mantido para ficarem acima) */
 .desktop .group {
     position: absolute;
-    top: 85px; 
+    top: 5vh; /* Ajuste para cima (5vh) */
     left: 50%;
     transform: translateX(-50%);
     width: 25%;
@@ -275,7 +313,7 @@
 
 .desktop .text-wrapper-4 {
     position: absolute;
-    top: 200px; 
+    top: 15vh; /* Ajuste para cima (15vh) */
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -388,21 +426,10 @@
     background-color: #d89e41;
 }
 
-#recovery-message {
-    margin-top: 15px;
-    min-height: 20px; 
-}
-/* ARQUIVO: acesso.css (SUBSTITUIR/AJUSTAR) */
-
-/* ------------------------------------------- */
-/* 4. MENSAGENS DE FEEDBACK (Visual Limpo)     */
-/* ------------------------------------------- */
-
-/* Estilos gerais para todas as mensagens de feedback */
+/* MENSAGENS DE FEEDBACK */
 #cadastro-message,
 #login-message,
 #recovery-message {
-    /* Garante que o elemento tenha espaço e presença */
     min-height: 25px; 
     padding: 5px 0;
     
@@ -411,27 +438,23 @@
     font-size: 16px;
     font-weight: 500;
     
-    /* Zera qualquer cor de fundo ou borda forçada */
     background-color: transparent !important; 
     border: none !important; 
     
-    /* Garante que a cor do texto seja definida apenas pelo JS (verde ou vermelho) */
     color: inherit; 
     
     z-index: 100;
 }
 
-/* POSICIONAMENTO ESPECÍFICO PARA AS MENSAGENS DO FORMULÁRIO */
 #cadastro-message,
 #login-message {
-    position: absolute;
-    top: 650px; /* Mantenha se estiver funcionando, ajuste se necessário */
-    width: 80%; 
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative; 
+    top: auto; 
+    width: 100%; 
+    left: auto;
+    transform: none;
 }
 
-/* POSICIONAMENTO DA MENSAGEM DENTRO DO MODAL */
 #recovery-message {
     position: relative; 
     margin-top: 15px;

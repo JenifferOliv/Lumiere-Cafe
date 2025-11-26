@@ -22,9 +22,9 @@ const rawProducts = [
     // CORRIGIDO: Imagem de sanduíche para Sanduíche Estrela
     { id: 'PROD17', categoryId: 'CAT02', name: 'Sanduíche Estrela', price: '12.90', description: 'Pão artesanal brioche, tostado em manteiga clarificada Ghee, recheado com Presunto Nobre e cremoso Queijo Emmental Suíço, derretidos sob pressão.', image: './images/image 2.png' },
     // CORRIGIDO: Imagem de coxinha para Coxinha de Frango
-    { id: 'PROD21', categoryId: 'CAT02', name: 'Coxinha de Frango', price: '11.70', description: 'Coxinha recheada com lascas de peito de frango caipira, cozido em caldo de especiarias e envolvido por um coração cremoso de autêntico Catupiry Original', image: './images/ChatGPT Image 19 de nov. de 2025, 12_24_19.png' },
+    { id: 'PROD21', categoryId: 'CAT02', name: 'Coxinha de Frango', price: '11.70', description: 'Coxinha recheada com lascas de peito de frango caipira, cozido em caldo de especiarias e envolvido por um coração cremoso de autêntico Catupiry Original', image: './images/ChatGPT Image 29 de out. de 2025, 12_03_25 2.png' },
     // CORRIGIDO: Imagem de torta de frango para Trama de Frango
-    { id: 'PROD28', categoryId: 'CAT02', name: 'Trama de Frango', price: '18.90', description: 'Torta de frango cremosa, massa leve e dourada, recheio saboroso e bem temperado. Uma opção clássica, confortável e irresistível.', image: './images/ChatGPT Image 29 de out. de 2025, 12_03_25 2.png' }, 
+    { id: 'PROD28', categoryId: 'CAT02', name: 'Trama de Frango', price: '18.90', description: 'Torta de frango cremosa, massa leve e dourada, recheio saboroso e bem temperado. Uma opção clássica, confortável e irresistível.', image: './images/ChatGPT Image 19 de nov. de 2025, 12_24_19.png' }, 
 
     // --- BEBIDAS ---
     // CORRIGIDO: Imagem de expresso para Café Expresso Estrela
@@ -48,7 +48,7 @@ const rawProducts = [
     // --- DOCES ---
     { id: 'PROD09', categoryId: 'CAT04', name: 'Cookie do Set', price: '4.50', description: 'Cookie de baunilha e gotas de chocolate meio amargo, levemente crocante.', image: './images/Cookie Marmorizado com Tag LUMIÈRE.png' },
     { id: 'PROD10', categoryId: 'CAT04', name: 'Cookie de Chocolate Duplo', price: '7.00', description: 'Um cookie indulgente de chocolate com pedaços de chocolate branco e ao leite.', image: './images/Cookie de Chocolate com Tag Elegante.png' },
-    { id: 'PROD16', categoryId: 'CAT04', name: 'Cookie Red Velvet', price: '9.00', description: 'Cookie macio de red velvet com pedaços de chocolate branco, textura aveludada e sabor marcante.', image: './images/Fatia de Red Velvet do LUMIÈRE.png' },
+    { id: 'PROD16', categoryId: 'CAT04', name: 'Cookie Red Velvet', price: '9.00', description: 'Cookie macio de red velvet com pedaços de chocolate branco, textura aveludada e sabor marcante.', image: './images/ChatGPT Image 29 de out. de 2025, 11_53_54.png' },
 ];
 
 // Mapeia os dados para o formato que o frontend espera (incluindo "R$ " e categorias em minúsculas)

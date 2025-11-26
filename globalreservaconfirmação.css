@@ -1,0 +1,22 @@
+/* Reset Básico para consistência entre navegadores */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    height: 100%;
+    /* Oculta a barra de rolagem se o conteúdo for maior que a tela. 
+       O 'desktop' já tem min-height: 100vh para ocupar a tela inteira. */
+    overflow: hidden; 
+}
+
+/* Estilo de foco acessível */
+button:focus-visible {
+    outline: 2px solid #D6983C;
+    outline-offset: 3px;
+}

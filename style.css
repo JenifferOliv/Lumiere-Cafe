@@ -1,19 +1,44 @@
+/* No seu globals.css ou style.css */
+
+/* 1. Resetar margem/padding padrão do corpo */
+body {
+    margin: 0; /* Essencial para remover margens laterais padrão */
+    padding: 0;
+    /* Também é bom garantir que não haja uma largura máxima que cause a borda */
+    width: 100%;
+    overflow-x: hidden; /* Evita barras de rolagem horizontais indesejadas */
+}
+
+/* 2. Garantir que o container principal ocupe 100% da largura */
+/* (Verifique se as classes .frame ou .desktop estão causando a borda) */
+.frame, .desktop {
+    width: 100%;
+    /* Remova qualquer max-width ou padding lateral que possa estar aqui */
+}
+
+/* Se você estiver usando um container principal com largura fixa/limitada,
+   ele pode estar causando as bordas brancas. Se .desktop for o container,
+   certifique-se de que ele não tem um width menor que 100% ou um alinhamento
+   que crie espaço lateral. */
 .frame {
   width: 100%;
-  min-width: 1440px;
+  min-width: 1440px; 
   min-height: 4116px;
   display: flex;
+  background-color: #fdf0d5; /* Fundo principal de 100% */
+  position: relative; /* Adicionado para garantir que o .group-7 se posicione corretamente */
 }
 
 .frame .desktop {
   width: 1440px;
   height: 4116px;
   position: relative;
-  background-color: #fdf0d5;
+  /* background-color: #fdf0d5; */ 
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  display: 
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo interno */
 }
 
 .frame .rectangle {
@@ -556,34 +581,34 @@
 }
 
 .frame .rectangle-10 {
- position: absolute; /* Mantém a posição do botão na tela */
- top: 2170px;
- left: 99px;
- width: 388px;
- height: 73px;
- background-color: #003049;
- border-radius: 25px;
- text-decoration: none; /* Opcional: remove o sublinhado do link */ 
- /* 🌟 NOVO: Centraliza o conteúdo (texto) 🌟 */
- display: flex;
- align-items: center; /* Centraliza verticalmente */
- justify-content: center; /* Centraliza horizontalmente */
+  position: absolute;
+  top: 2170px;
+  left: 99px;
+  width: 388px;
+  height: 73px;
+  background-color: #003049;
+  border-radius: 25px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .frame .text-wrapper-16 {
   font-family: "Poppins", Helvetica;
- font-weight: 500;
- color: #fdf0d5;
- font-size: 32px;
- letter-spacing: 0;
- line-height: normal;
+  font-weight: 500;
+  color: #fdf0d5;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
+/* 🚀 CORREÇÃO DO RODAPÉ */
 .frame .group-7 {
   position: absolute;
   top: 3635px;
-  left: 0;
-  width: 1470px;
+  left: 0; 
+  width: 100%; /* Garante 100% da largura do .frame */
   height: 483px;
 }
 
@@ -591,10 +616,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 1440px;
+  width: 100%; /* Garante 100% da largura do .group-7 */
   height: 483px;
   background-color: #003049;
 }
+/* ------------------------ */
 
 .frame .instagram-icon {
   position: absolute;
@@ -943,12 +969,12 @@
   cursor: pointer;
   color: #780000;
   transition: transform 0.2s ease, color 0.2s ease;
-  white-space: nowrap; /* mantém tudo em uma linha */
+  white-space: nowrap;
 }
 
 .header-link:hover {
-  transform: translateY(-3px); /* sobe levemente */
-  color: #9e2a2b; /* muda cor levemente */
+  transform: translateY(-3px);
+  color: #9e2a2b;
 }
 
 /* Botões com seta */
@@ -978,7 +1004,7 @@
 .group-2:hover,
 .group-3:hover,
 .text-wrapper-16:hover {
-  transform: translateX(5px); /* seta se move para direita */
+  transform: translateX(5px);
 }
 
 /* Opcional: texto também sobe levemente */
@@ -994,7 +1020,7 @@
 .usurio:hover,
 .carrinho:hover,
 .claquete:hover {
-  transform: translateY(-3px); /* sobe levemente */
+  transform: translateY(-3px);
   transition: transform 0.2s ease;
 }
 
@@ -1002,35 +1028,36 @@
 .text-wrapper-16 {
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* espaço entre texto e possível ícone */
+  gap: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
-  color: #780000; /* cor original igual aos links do cabeçalho */
-  white-space: nowrap; /* mantém tudo em uma linha */
+  color: #780000;
+  white-space: nowrap;
 }
 
 .text-wrapper-16:hover {
-  transform: translateY(-3px); /* sobe levemente ao passar o mouse */
-  color: #9e2a2b; /* muda a cor levemente ao passar o mouse */
+  transform: translateY(-3px);
+  color: #9e2a2b;
 }
+
 /* --- Media Queries Mobile --- */
 @media (max-width: 768px) {
 
   /* Cabeçalho */
   .header-links,
   .header-icons {
-    display: none; /* Esconde links e ícones desktop */
+    display: none;
   }
 
   .hamburger {
-    display: flex; /* Mostra o menu hamburger */
+    display: flex;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
   }
 
   .mobile-menu {
-    display: none; /* Menu inicialmente escondido */
+    display: none;
     flex-direction: column;
     gap: 15px;
     background-color: #fdf0d5;
@@ -1038,7 +1065,7 @@
   }
 
   .mobile-menu.active {
-    display: flex; /* Mostra menu quando ativo */
+    display: flex;
   }
 
   /* Logo central */

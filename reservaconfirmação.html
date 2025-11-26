@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Reserva Confirmada | Lumière Café</title>
+    <!-- Incluindo folhas de estilo: -->
+    <link rel="stylesheet" href="globalreservaconfirmação.css">
+    <link rel="stylesheet" href="reservaconfirmação.css">
+</head>
+<body>
+
+    <!-- O body agora define o fundo externo (amarelo) e centraliza o .desktop -->
+    <div class="desktop">
+
+       
+        <div class="confirmation-image-container">
+            <img src="confirmação.png" alt="Cookies Red Velvet e xícara de café, representando a reserva confirmada." class="confirmation-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/D6983C/FFF?text=IMAGEM+DE+FUNDO';" />
+        </div>
+
+        <!-- 2. CAIXA DE CONFIRMAÇÃO (O MODAL) -->
+        <div class="confirmation-box">
+
+            <div class="logo-container">
+                <img src="logo.svg" alt="Logo Lumière Café" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x64/D6983C/FFF?text=LOGO';" />
+            </div>
+
+            <!-- TÍTULO -->
+            <h1 class="title">
+                MESA RESERVADA
+            </h1>
+
+            <!-- TEXTO DE CONFIRMAÇÃO -->
+            <p class="confirmation-text">
+                Luzes, câmera, ação! Sua mesa está garantida no Lumière Café. Venha se deliciar e criar memórias dignas de cinema. Seja bem-vindo(a)!
+            </p>
+
+            <!-- BOTÃO CONTINUAR -->
+            <button id="btnContinuar" class="continue-button" onclick="handleContinuar()">
+                Continuar
+            </button>
+            
+        </div>
+        
+    </div>
+
+    <script>
+        /**
+         * Lógica para o botão Continuar.
+         */
+        function handleContinuar() {
+            // Em um ambiente de produção, aqui você faria o redirecionamento:
+            // window.location.href = '/sua-proxima-pagina.html'; 
+            console.log('Botão Continuar clicado. Redirecionando...');
+
+            // Exemplo de modal simples (substituindo o alert, que é proibido)
+            const desktop = document.querySelector('.desktop');
+            
+            
+            // Adiciona a mensagem ao corpo principal do aplicativo
+            document.body.appendChild(message); // Adiciona ao body, não ao .desktop
+            
+            // Remove a mensagem após 2 segundos
+            setTimeout(() => {
+                // Verifica se o elemento ainda existe antes de tentar removê-lo
+                if (document.body.contains(message)) {
+                    document.body.removeChild(message);
+                }
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

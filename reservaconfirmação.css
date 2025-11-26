@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap');
+
+body {
+    background-color: #E09F3EF3;
+    font-family: 'Sora', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; 
+}
+
+.desktop {
+    position: relative;
+    width: 90%;
+    max-width: 1200px; 
+    height: 80vh; 
+    max-height: 800px;
+    background-color: #FFF2DD; 
+    border: 15px solid #E09F3EF3;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.confirmation-image {
+    /* Faz a imagem ocupar uma área razoável dentro do contêiner */
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 8px; /* Borda da imagem, se necessário */
+    object-fit: contain; /* Garante que a imagem inteira apareça */
+}
+
+/* Estilo da caixa de diálogo central (o pop-up de confirmação) */
+.confirmation-box {
+    position: absolute;
+    z-index: 10; /* Garante que o modal fique acima da imagem */
+    width: 90%; 
+    max-width: 450px; /* Modal menor para sobreposição */
+    
+    /* Centralização em relação ao .desktop */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    padding: 60px 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+    /* Efeito de vidro fosco (semi-transparente) */
+    backdrop-filter: blur(4px); 
+    background-color: rgba(225, 215, 198, 0.72); /* Cor de fundo clara e semi-transparente */
+}
+
+/* Estilos da Logo (Mantidos do exercício anterior para flutuar) */
+.logo-container {
+    position: absolute; 
+    top: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo-img {
+    height: 100px; 
+    width: auto;
+    border-radius: 8px; 
+}
+
+/* Estilo para o título (MESA RESERVADA) */
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #583F2C; /* Mudei a cor para o marrom escuro para ser legível no fundo claro do modal */
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+/* Estilo para o texto de confirmação */
+.confirmation-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #583F2C; /* Mudei a cor para o marrom escuro */
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Estilo para o botão Continuar */
+.continue-button {
+    width: 100%;
+    height: 56px;
+    background-color: #D6983C;
+    color: #FFF2DD;
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #C28936;
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.continue-button:active {
+    transform: scale(0.98);
+}
+
+/* Estilo para a mensagem/modal de demonstração do JS */
+.fixed-modal {
+    
+}
+
+/* Responsividade (mobile) */
+@media (max-width: 640px) {
+    .desktop {
+        height: 90vh;
+        border: 10px solid #E09F3EF3;
+    }
+    .confirmation-box {
+        padding: 60px 20px 30px;
+        max-width: 350px;
+    }
+    .logo-container {
+        top: -40px;
+    }
+    .logo-img {
+        height: 80px;
+    }
+    .confirmation-image {
+        width: 100%;
+    }
+}
