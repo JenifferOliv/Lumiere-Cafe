@@ -3,7 +3,7 @@ const movies = [
     {
         id: 1,
         title: "Como eu era antes de você (2016)",
-        day: "Segunda",
+        day: "Segunda 19:30 12+",
         rating: 4.8,
         // 🛑 Usando placeholder para simular suas imagens. Substitua por seus caminhos: 
         // posterUrl: "./img/Como eu era antes de vc.png",
@@ -13,7 +13,7 @@ const movies = [
     {
         id: 2,
         title: "Nós (2019)",
-        day: "Terça",
+        day: "Terça 19:30 16+",
         rating: 4.8,
         // posterUrl: "./img/Nós.png",
         posterUrl: "./imgEventos/Nós.png",
@@ -22,7 +22,7 @@ const movies = [
     {
         id: 3,
         title: "Moonlight: Sob a Luz do Luar (2016)",
-        day: "Quinta",
+        day: "Quinta 19:30 16+",
         rating: 4.8,
         posterUrl: "./imgEventos/Moonlight.png",
 
@@ -31,7 +31,7 @@ const movies = [
     {
         id: 4,
         title: "Duna: Parte 2 (2024)",
-        day: "Quarta",
+        day: "Quarta 19:30 14+",
         rating: 4.5,
         posterUrl: "./imgEventos/Duna 2.png",
         synopsis: "Após unir forças com os Fremen, Paul Atreides embarca no caminho que pode transformá-lo no líder messiânico profetizado. Enquanto domina as tradições do deserto e enfrenta forças políticas implacáveis, Paul precisa decidir entre vingança e responsabilidade. A guerra pelo controle de Arrakis se intensifica, e o destino do planeta — e do próprio Paul — se aproxima de um ponto sem retorno."
@@ -39,7 +39,7 @@ const movies = [
     {
         id: 5,
         title: "Filme Surpresa",
-        day: "Sexta",
+        day: "Sexta 20:00",
         rating: 0,
         posterUrl: "./imgEventos/Surpresa.png",
         synopsis: "Ninguém sabe qual filme será exibido nesta noite!"
@@ -47,7 +47,7 @@ const movies = [
     {
         id: 6,
         title: "Corra (2017)",
-        day: "Sábado",
+        day: "Sábado 20:30 16+",
         rating: 4.5,
         posterUrl: "./imgEventos/Corra.png",
         synopsis: "Chris, um jovem fotógrafo negro, viaja para conhecer a família da namorada branca. Apesar da recepção aparentemente calorosa, comportamentos estranhos começam a revelar que algo muito sinistro está acontecendo na casa. Conforme Chris investiga, descobre um segredo perturbador envolvendo manipulação mental e práticas macabras. O filme mistura terror psicológico e crítica racial de forma afiada e impactante."

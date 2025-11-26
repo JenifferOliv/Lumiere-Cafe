@@ -4,7 +4,7 @@ const rawProducts = [
     { id: 'PROD01', categoryId: 'CAT01', name: 'Bolo Cítrico Matinée', price: '9.00', description: 'Bolo de limão com cobertura de merengue suíço e raspas de laranja.', image: './images/Bolo de Limão no LUMIÈRE Café.png' },
     { id: 'PROD02', categoryId: 'CAT01', name: 'Bolo Ouro Negro', price: '30.30', description: 'Bolo de chocolate belga, caramelo salgado e uma pitada de flor de sal.', image: './images/ChatGPT Image 29 de out. de 2025, 11_53_54 (1) 2.png' },
     { id: 'PROD03', categoryId: 'CAT01', name: 'Bolo de Nozes Clássico', price: '19.50', description: 'Receita tradicional com massa fofinha e cobertura suave de doce de leite.', image: './images/Bolo de noz.png' },
-    { id: 'PROD20', categoryId: 'CAT01', name: 'Petit Lumière', price: '25.00', description: 'Cupckae feito com cacau puro 70% em uma massa aveludada e finalizado com um swirl generoso de ganache suíça, sedosa e densa', image: './images/ChatGPT Image 29 de out. de 2025, 11_53_54 (1) 2.png' },
+    { id: 'PROD20', categoryId: 'CAT01', name: 'Petit Lumière', price: '25.00', description: 'Cupckae feito com cacau puro 70% em uma massa aveludada e finalizado com um swirl generoso de ganache suíça, sedosa e densa', image: './images/ChatGPT Image 29 de out. de 2025, 12_03_25 1.png' },
     // CORRIGIDO: Imagem de bolo de morango para Romance Escarlate
     { id: 'PROD11', categoryId: 'CAT01', name: 'Bolo Romance Escarlate', price: '18.00', description: 'Camadas generosas de massa branca intercaladas com creme suave e geleia artesanal de morango.', image: './images/ChatGPT Image 3 de nov. de 2025, 08_36_38 1.png' },
     // CORRIGIDO: Imagem de bolo de pistache para Esmeralda Gourmet

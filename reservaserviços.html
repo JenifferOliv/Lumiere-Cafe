@@ -1,72 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="utf-8" />
-        <title>Lumière Café - Serviços</title>
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-        <link rel="stylesheet" href="globalserviçosreserva.css" />
-        <link rel="stylesheet" href="serviçosreserva.css" />
-        
-    </head>
-    <body>
-        <div class="desktop">
-            <div class="main-container">
-                <a href="index.html" class="back-arrow" id="backArrow">
-                    &#x2190; </a>
 
-                <div class="content-box">
-                    <img src="/imagens reserva/logo.png" alt="Logo Lumière Café" class="logo-image" /> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Lumière Café - Serviços</title>
 
-                    <div class="welcome-text">Bem-Vindo! Lumière Café</div>
-                    <p class="question-title">Qual serviço você deseja utilizar?</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="globalserviçosreserva.css" />
+    <link rel="stylesheet" href="serviçosreserva.css" />
 
-                    <a href="reserva_de_mesa.html" class="button-link" id="reserveButton">
-                        <img class="button-icon" src="/imagens reserva/reserva.png" alt="Ícone de Reserva de Mesa" />
-                        <div class="button-text-group">
-                            <span class="title">Fazer reserva de mesa</span>
-                            <span class="description">Escolha a data e venha ao café</span>
-                        </div>
-                    </a>
+</head>
 
-                    <a href="eventos.html" class="button-link" id="eventsButton">
-                        <img class="button-icon" src="/imagens reserva/eventos.png" alt="Ícone de Eventos" />
-                        <div class="button-text-group">
-                            <span class="title">Ver eventos</span>
-                            <span class="description">Vá para a página dos eventos</span>
-                        </div>
-                    </a>
+<body>
+    <div class="desktop">
+        <div class="main-container">
+            <a href="index.html" class="back-arrow" id="backArrow">
+                &#x2190; </a>
 
-                    <a href="cardapio.html" class="button-link" id="menuButton">
-                        <img class="button-icon" src="/imagens reserva/cardapio.png" alt="Ícone de Cardápio" />
-                        <div class="button-text-group">
-                            <span class="title">Ver cardápio</span>
-                            <span class="description">Vá para a página do cardápio</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="content-box">
+                <img src="/imagens reserva/logo.png" alt="Logo Lumière Café" class="logo-image" />
+
+                <div class="welcome-text">Bem-Vindo! Lumière Café</div>
+                <p class="question-title">Qual serviço você deseja utilizar?</p>
+
+                <a href="reservapreencher.html" class="button-link" id="reserveButton">
+                    <img class="button-icon" src="/imagens reserva/reserva.png" alt="Ícone de Reserva de Mesa" />
+                    <div class="button-text-group">
+                        <span class="title">Fazer reserva de mesa</span>
+                        <span class="description">Escolha a data e venha ao café</span>
+                    </div>
+                </a>
+
+                <a href="indexEventos.html" class="button-link" id="eventsButton">
+                    <img class="button-icon" src="/imagens reserva/eventos.png" alt="Ícone de Eventos" />
+                    <div class="button-text-group">
+                        <span class="title">Ver eventos</span>
+                        <span class="description">Vá para a página dos eventos</span>
+                    </div>
+                </a>
+
+                <a href="cardapio.html" class="button-link" id="menuButton">
+                    <img class="button-icon" src="/imagens reserva/cardapio.png" alt="Ícone de Cardápio" />
+                    <div class="button-text-group">
+                        <span class="title">Ver cardápio</span>
+                        <span class="description">Vá para a página do cardápio</span>
+                    </div>
+                </a>
             </div>
         </div>
+    </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const reserveButton = document.getElementById('reserveButton');
-                const eventsButton = document.getElementById('eventsButton');
-                const menuButton = document.getElementById('menuButton');
-                
-                reserveButton.addEventListener('click', (e) => {
-                    window.location.href = e.currentTarget.href;
-                });
-                
-                eventsButton.addEventListener('click', (e) => {
-                    window.location.href = e.currentTarget.href;
-                });
+   reserveButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Impede que o link 'a' navegue por conta própria
+    // Outro código aqui (se houver)
 
-                menuButton.addEventListener('click', (e) => {
-                    window.location.href = e.currentTarget.href;
-                });
-            });
-        </script>
-    </body>
+    // Apenas agora, força a navegação via JS
+    window.location.href = e.currentTarget.href;
+});
+</body>
+
 </html>

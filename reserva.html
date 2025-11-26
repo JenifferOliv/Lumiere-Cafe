@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumière Café - Reserva de Mesa</title>
-    
-    <link rel="stylesheet" href="reserva.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Poppins:wght@400;500;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reserva.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Poppins:wght@400;500;700&family=Sora:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body class="reservation-body">
 
     <div class="reservation-container">
-        
+
         <button class="back-button" onclick="goBack()">
             ← Voltar
         </button>
@@ -24,17 +28,17 @@
         </div>
 
         <div id="reservation-steps" class="reservation-box">
-            
+
             <div id="step-1" class="step active">
                 <p class="welcome-text">Bem-Vindo! Lumière Café</p>
                 <h1 class="service-question">Qual serviço você deseja utilizar?</h1>
                 <div id="service-options-container">
-                    </div>
+                </div>
             </div>
 
             <div id="step-2" class="step hidden">
                 <h2 class="step-title">Faça sua reserva</h2>
-                
+
                 <div class="reservation-image-placeholder"></div>
 
                 <form id="reservation-form">
@@ -53,7 +57,7 @@
                             <option value="6">6 Pessoas</option>
                         </select>
                     </div>
-                    
+
                     <div class="input-group-reserva">
                         <label for="time">Horário</label>
                         <select id="time" name="time" required>
@@ -66,13 +70,14 @@
 
                     <div class="input-group-reserva">
                         <label for="special-request">Precisa de algo especial? (Opcional)</label>
-                        <textarea id="special-request" name="special-request" placeholder="Ex: Aniversário, restrições alimentares" rows="3"></textarea>
+                        <textarea id="special-request" name="special-request"
+                            placeholder="Ex: Aniversário, restrições alimentares" rows="3"></textarea>
                     </div>
 
                     <p class="policy-text">
                         * Pedimos que chegue no máximo com 15 minutos de antecedência.
                     </p>
-                    
+
                     <button type="button" class="btn primary btn-continue" onclick="nextStep(3)">Continuar</button>
                 </form>
             </div>
@@ -87,26 +92,27 @@
                         </p>
                         <div class="detail-summary">
                         </div>
-                        <button type="button" class="btn primary btn-confirm" onclick="finalConfirmation()">
+                        <button type="button" class="btn primary btn-confirm"
+                            onclick="window.location.href='reservaconfirmação.html'">
                             Continuar
                         </button>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
     <script>
         // --- CONFIGURAÇÃO SUPABASE (Seus dados) ---
-        const SUPABASE_URL = 'https://isticmrrszpueieovlqq.supabase.co'; 
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzdGljbXJyc3pwdWVpZW92bHFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MzEwMjcsImV4cCI6MjA3OTQwNzAyN30.M3NNmuKrVFm-i4wQTHpVI0s-M3SCwHtB5CK93RZ2QL4'; 
-        
+        const SUPABASE_URL = 'https://isticmrrszpueieovlqq.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzdGljbXJyc3pwdWVpZW92bHFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MzEwMjcsImV4cCI6MjA3OTQwNzAyN30.M3NNmuKrVFm-i4wQTHpVI0s-M3SCwHtB5CK93RZ2QL4';
+
         // Esta linha pode dar erro se o Supabase SDK não foi carregado
         // Tente remover 'supabase.' se o console reportar erro na linha
         // const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         // Ou mantenha se o SDK estiver no <head> como no seu código.
-        
+
         // --- DADOS E REFERÊNCIAS ---
         const serviceOptions = [
             {
@@ -115,15 +121,15 @@
                 description: "Escolha a data e venha ao café",
                 icon: "https://c.animaapp.com/2rCwzqnx/img/icons8-reserva-50-1@2x.png",
                 icon: "reserva.png",
-                action: "nextStep(2)" 
-                
+                action: "nextStep(2)"
+
             },
             {
                 id: 2,
                 title: "Ver eventos",
                 description: "Vá para a página dos eventos",
                 icon: "https://c.animaapp.com/2rCwzqnx/img/icons8-clapperboard-24-1@2x.png",
-                 icon: "eventos.png",
+                icon: "eventos.png",
                 action: "alert('Funcionalidade de Eventos ainda não implementada.')"
             },
             {
@@ -131,7 +137,7 @@
                 title: "Ver cardápio",
                 description: "Vá para a página do cardápio",
                 icon: "https://c.animaapp.com/2rCwzqnx/img/icons8-card-pio-50-1@2x.png",
-                 icon: "cardapio.png",
+                icon: "cardapio.png",
                 action: "alert('Funcionalidade de Cardápio ainda não implementada.')"
             },
         ];
@@ -139,13 +145,13 @@
         // Certifique-se de que estas variáveis globais existem no escopo
         const steps = document.querySelectorAll('.step');
         let currentStep = 1;
-        
+
         // --- FUNÇÃO QUE CRIA OS BOTÕES (AGORA DENTRO DO HTML) ---
         function renderServiceOptions() {
             // Obtemos a referência ao container APÓS o DOM ter carregado
-            const container = document.getElementById('service-options-container'); 
+            const container = document.getElementById('service-options-container');
             if (!container) return; // Proteção caso o container não seja encontrado
-            
+
             let htmlContent = '';
             serviceOptions.forEach(service => {
                 htmlContent += `
@@ -166,7 +172,7 @@
             // (Mantenha o restante do código das funções nextStep, goBack, 
             // validateStep2, updateSummary e finalConfirmation aqui)
             // ... [COLE O RESTANTE DAS SUAS FUNÇÕES AQUI] ...
-            
+
             // Exemplo da nextStep para referência:
             if (stepNumber === 3) { if (!validateStep2()) { return; } updateSummary(); }
             steps.forEach(step => { step.classList.add('hidden'); step.classList.remove('active'); });
@@ -175,11 +181,11 @@
                 nextStepElement.classList.remove('hidden'); nextStepElement.classList.add('active'); currentStep = stepNumber;
             }
         }
-        
-        function goBack() { 
+
+        function goBack() {
             if (currentStep > 1) { nextStep(currentStep - 1); } else { history.back(); }
         }
-        
+
         // (Adicione o restante das funções aqui)
         function validateStep2() { /* ... */ return true; }
         function updateSummary() { /* ... */ }
@@ -189,9 +195,10 @@
         // ⚠️ INICIALIZAÇÃO GARANTIDA NO CARREGAMENTO DA PÁGINA ⚠️
         // Usamos DOMContentLoaded para garantir que o elemento existe
         document.addEventListener('DOMContentLoaded', renderServiceOptions);
-        
+
         // Chamada imediata, caso o script seja carregado tarde
         renderServiceOptions(); 
     </script>
 </body>
+
 </html>
